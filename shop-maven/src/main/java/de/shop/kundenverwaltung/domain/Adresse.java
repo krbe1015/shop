@@ -13,6 +13,8 @@ public class Adresse implements Serializable {
 	private String plz;
 	private String ort;
 	
+	// comment 094657496
+	
 	@XmlTransient
 	private AbstractKunde kunde;
 	
