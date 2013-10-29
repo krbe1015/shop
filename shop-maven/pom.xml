@@ -44,10 +44,10 @@ Enable project specific settings
 
         <modelVersion>4.0.0</modelVersion>
         <groupId>de.shop</groupId>
-        <artifactId>shop</artifactId>
+        <artifactId>-maven</artifactId>
         <version>1.0</version>
         <packaging>war</packaging>
-        <name>shop</name>
+        <name>shop-maven</name>
         
         <url>http://www.iwi.hs-karlsruhe.de</url>
         <inceptionYear>2009</inceptionYear>
