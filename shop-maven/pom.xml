@@ -44,7 +44,7 @@ Enable project specific settings
 
         <modelVersion>4.0.0</modelVersion>
         <groupId>de.shop</groupId>
-        <artifactId>-maven</artifactId>
+        <artifactId>shop-maven</artifactId>
         <version>1.0</version>
         <packaging>war</packaging>
         <name>shop-maven</name>
