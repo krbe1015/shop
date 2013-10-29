@@ -30,6 +30,7 @@ public abstract class AbstractKunde implements Serializable {
 	public static final String FIRMENKUNDE = "F";
 	
 	private Long id;
+	private String vorname;
 	private String nachname;
 	private String email;
 	private Adresse adresse;
@@ -44,6 +45,12 @@ public abstract class AbstractKunde implements Serializable {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getVorname() {
+		return vorname;
+	}
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
 	}
 	public String getNachname() {
 		return nachname;

@@ -1,5 +1,6 @@
 package de.shop.bestellverwaltung.domain;
 
+
 public abstract class AbstractArtikel {
 	
 	private int id;

@@ -9,7 +9,6 @@ import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
 import de.shop.kundenverwaltung.domain.Firmenkunde;
-import de.shop.kundenverwaltung.domain.HobbyType;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
 /**
@@ -39,10 +38,6 @@ public final class Mock {
 		
 		if (kunde.getClass().equals(Privatkunde.class)) {
 			final Privatkunde privatkunde = (Privatkunde) kunde;
-			final Set<HobbyType> hobbies = new HashSet<>();
-			hobbies.add(HobbyType.LESEN);
-			hobbies.add(HobbyType.REISEN);
-			privatkunde.setHobbies(hobbies);
 		}
 		
 		return kunde;
