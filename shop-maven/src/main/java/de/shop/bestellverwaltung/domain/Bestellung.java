@@ -17,6 +17,7 @@ public class Bestellung implements Serializable {
 	
 	private Long id;
 	private boolean ausgeliefert;
+	private AbstractArtikel artikel;
 	
 	@XmlTransient
 	private AbstractKunde kunde;
@@ -48,6 +49,15 @@ public class Bestellung implements Serializable {
 	public void setKundeUri(URI kundeUri) {
 		this.kundeUri = kundeUri;
 	}
+	
+	public AbstractArtikel getArtikel() {
+		return artikel;
+	}
+	
+	public void setAbstractArtikel(AbstractArtikel artikel) {
+		this.artikel = artikel;
+	}
+	
 	
 	@Override
 	public int hashCode() {
