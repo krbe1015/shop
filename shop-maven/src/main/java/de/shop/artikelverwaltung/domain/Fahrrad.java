@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.shop.bestellverwaltung.domain;
+package de.shop.artikelverwaltung.domain;
 
 /**
  * @author Casanobi

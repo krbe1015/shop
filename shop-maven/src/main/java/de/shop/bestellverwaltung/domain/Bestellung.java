@@ -6,6 +6,7 @@ import java.net.URI;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import de.shop.artikelverwaltung.domain.AbstractArtikel;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 
 /**

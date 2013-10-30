@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.shop.bestellverwaltung.domain;
+package de.shop.artikelverwaltung.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;

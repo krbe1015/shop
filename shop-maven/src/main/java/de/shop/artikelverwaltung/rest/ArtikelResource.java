@@ -1,4 +1,4 @@
-package de.shop.bestellverwaltung.rest;
+package de.shop.artikelverwaltung.rest;
 
 import static de.shop.util.Constants.ADD_LINK;
 import static de.shop.util.Constants.REMOVE_LINK;
@@ -25,12 +25,10 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import de.shop.bestellverwaltung.domain.AbstractArtikel;
-import de.shop.kundenverwaltung.domain.AbstractKunde;
+import de.shop.artikelverwaltung.domain.AbstractArtikel;
 import de.shop.util.Mock;
 import de.shop.util.rest.NotFoundException;
 import de.shop.util.rest.UriHelper;
-
 /**
  * @author <a href="mailto:Juergen.Zimmermann@HS-Karlsruhe.de">J&uuml;rgen Zimmermann</a>
  * 
@@ -76,15 +74,15 @@ public class ArtikelResource {
 		
 		final Link add = Link.fromUri(uriHelper.getUri(ArtikelResource.class, uriInfo))
 				.rel(ADD_LINK)
-				.build;
+				.build();
 		
 		final Link update = Link.fromUri(uriHelper.getUri(ArtikelResource.class, uriInfo))
 				.rel(UPDATE_LINK)
-				.build;
+				.build();
 		
 		final Link remove = Link.fromUri(uriHelper.getUri(ArtikelResource.class, uriInfo))
 				.rel(REMOVE_LINK)
-				.build;
+				.build();
 		
 		return new Link[] { self, add, update, remove };
 	}
