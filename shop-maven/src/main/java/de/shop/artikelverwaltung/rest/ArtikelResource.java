@@ -67,7 +67,7 @@ public class ArtikelResource {
 		return response;
 	}
 	
-	private Link[] getTransitionalLinks(AbstractAtrikel artikel, UriInfo uriInfo) {
+	private Link[] getTransitionalLinks(AbstractArtikel artikel, UriInfo uriInfo) {
 		final Link self = Link.fromUri(getUriArtikel(artikel, uriInfo))
                               .rel(SELF_LINK)
                               .build();
@@ -87,7 +87,7 @@ public class ArtikelResource {
 		return new Link[] { self, add, update, remove };
 	}
 	
-	public URI getUriArtikel(AbstractAtrikel artikel, UriInfo uriInfo) {
+	public URI getUriArtikel(AbstractArtikel artikel, UriInfo uriInfo) {
 		return uriHelper.getUri(ArtikelResource.class, "findArtikelById", artikel.getId(), uriInfo);
 	}
 	

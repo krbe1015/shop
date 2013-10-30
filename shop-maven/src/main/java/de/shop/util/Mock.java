@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import de.shop.bestellverwaltung.domain.AbstractArtikel;
+import de.shop.artikelverwaltung.domain.AbstractArtikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
@@ -122,6 +122,11 @@ public final class Mock {
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
+	public static AbstractArtikel createArtikel(AbstractArtikel artikel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public static void updateArtikel(AbstractArtikel artikel) {
 		// TODO Auto-generated method stub
 		
@@ -130,11 +135,6 @@ public final class Mock {
 	public static void deleteArtikel(Long artikelId) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public static AbstractArtikel createArtikel(AbstractArtikel artikel) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private Mock() { /**/ }
