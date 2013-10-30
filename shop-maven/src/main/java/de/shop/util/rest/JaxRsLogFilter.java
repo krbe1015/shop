@@ -19,11 +19,6 @@ import org.jboss.logging.Logger;
 @Provider
 public class JaxRsLogFilter implements ContainerRequestFilter, ContainerResponseFilter {
 	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
-	@Override
-	public void filter(ContainerRequestContext requestCtx, ContainerResponseContext responseCtx) throws IOException {
-		LOGGER.debugf("Status Info: %d %s", responseCtx.getStatus(), responseCtx.getStatusInfo());
-		LOGGER.debugf("Location: %s", responseCtx.getLocation());		
-	}
 	
 	@Override
 	public void filter(ContainerRequestContext requestCtx) throws IOException {
@@ -45,5 +40,9 @@ public class JaxRsLogFilter implements ContainerRequestFilter, ContainerResponse
 		LOGGER.debugf("Acceptable Languages: %s", requestCtx.getAcceptableLanguages());
 	}
 
-
+	@Override
+	public void filter(ContainerRequestContext requestCtx, ContainerResponseContext responseCtx) throws IOException {
+		LOGGER.debugf("Status Info: %d %s", responseCtx.getStatus(), responseCtx.getStatusInfo());
+		LOGGER.debugf("Location: %s", responseCtx.getLocation());		
+	}
 }

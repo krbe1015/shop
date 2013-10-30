@@ -5,11 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import de.shop.artikelverwaltung.domain.AbstractArtikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
 import de.shop.kundenverwaltung.domain.Firmenkunde;
+import de.shop.kundenverwaltung.domain.HobbyType;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
 /**
@@ -39,6 +39,10 @@ public final class Mock {
 		
 		if (kunde.getClass().equals(Privatkunde.class)) {
 			final Privatkunde privatkunde = (Privatkunde) kunde;
+			final Set<HobbyType> hobbies = new HashSet<>();
+			hobbies.add(HobbyType.LESEN);
+			hobbies.add(HobbyType.REISEN);
+			privatkunde.setHobbies(hobbies);
 		}
 		
 		return kunde;
@@ -94,11 +98,6 @@ public final class Mock {
 		
 		return bestellung;
 	}
-	
-	public static AbstractArtikel findArtikelById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public static AbstractKunde createKunde(AbstractKunde kunde) {
 		// Neue IDs fuer Kunde und zugehoerige Adresse
@@ -120,21 +119,6 @@ public final class Mock {
 
 	public static void deleteKunde(Long kundeId) {
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
-	}
-
-	public static AbstractArtikel createArtikel(AbstractArtikel artikel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static void updateArtikel(AbstractArtikel artikel) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public static void deleteArtikel(Long artikelId) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private Mock() { /**/ }
