@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import de.shop.bestellverwaltung.domain.AbstractArtikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
@@ -93,6 +94,11 @@ public final class Mock {
 		
 		return bestellung;
 	}
+	
+	public static AbstractArtikel findArtikelById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public static AbstractKunde createKunde(AbstractKunde kunde) {
 		// Neue IDs fuer Kunde und zugehoerige Adresse
@@ -114,6 +120,21 @@ public final class Mock {
 
 	public static void deleteKunde(Long kundeId) {
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
+	}
+
+	public static void updateArtikel(AbstractArtikel artikel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void deleteArtikel(Long artikelId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static AbstractArtikel createArtikel(AbstractArtikel artikel) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private Mock() { /**/ }

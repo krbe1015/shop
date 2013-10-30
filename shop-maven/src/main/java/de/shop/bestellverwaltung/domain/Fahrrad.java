@@ -8,36 +8,12 @@ package de.shop.bestellverwaltung.domain;
  *
  */
 public class Fahrrad extends AbstractArtikel {
-
-	private double rahmengroesse;
-	private int zoll;
+	
 	private int gaenge;
+	private double zoll;
+	private double rahmengröße;
 	private double gewicht;
 	
-	/**
-	 * @return the rahmengroesse
-	 */
-	public double getRahmengroesse() {
-		return rahmengroesse;
-	}
-	/**
-	 * @param rahmengroesse the rahmengroesse to set
-	 */
-	public void setRahmengroesse(double rahmengroesse) {
-		this.rahmengroesse = rahmengroesse;
-	}
-	/**
-	 * @return the zoll
-	 */
-	public int getZoll() {
-		return zoll;
-	}
-	/**
-	 * @param zoll the zoll to set
-	 */
-	public void setZoll(int zoll) {
-		this.zoll = zoll;
-	}
 	/**
 	 * @return the gaenge
 	 */
@@ -49,6 +25,30 @@ public class Fahrrad extends AbstractArtikel {
 	 */
 	public void setGaenge(int gaenge) {
 		this.gaenge = gaenge;
+	}
+	/**
+	 * @return the zoll
+	 */
+	public double getZoll() {
+		return zoll;
+	}
+	/**
+	 * @param zoll the zoll to set
+	 */
+	public void setZoll(double zoll) {
+		this.zoll = zoll;
+	}
+	/**
+	 * @return the rahmengröße
+	 */
+	public double getRahmengröße() {
+		return rahmengröße;
+	}
+	/**
+	 * @param rahmengröße the rahmengröße to set
+	 */
+	public void setRahmengröße(double rahmengröße) {
+		this.rahmengröße = rahmengröße;
 	}
 	/**
 	 * @return the gewicht
@@ -74,9 +74,10 @@ public class Fahrrad extends AbstractArtikel {
 		long temp;
 		temp = Double.doubleToLongBits(gewicht);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(rahmengroesse);
+		temp = Double.doubleToLongBits(rahmengröße);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + zoll;
+		temp = Double.doubleToLongBits(zoll);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 	
@@ -97,10 +98,11 @@ public class Fahrrad extends AbstractArtikel {
 		if (Double.doubleToLongBits(gewicht) != Double
 				.doubleToLongBits(other.gewicht))
 			return false;
-		if (Double.doubleToLongBits(rahmengroesse) != Double
-				.doubleToLongBits(other.rahmengroesse))
+		if (Double.doubleToLongBits(rahmengröße) != Double
+				.doubleToLongBits(other.rahmengröße))
 			return false;
-		if (zoll != other.zoll)
+		if (Double.doubleToLongBits(zoll) != Double
+				.doubleToLongBits(other.zoll))
 			return false;
 		return true;
 	}
@@ -110,9 +112,7 @@ public class Fahrrad extends AbstractArtikel {
 	 */
 	@Override
 	public String toString() {
-		return "Fahrrad [rahmengroesse=" + rahmengroesse + ", zoll=" + zoll
-				+ ", gaenge=" + gaenge + ", gewicht=" + gewicht + "]";
+		return "Fahrrad [gaenge=" + gaenge + ", zoll=" + zoll
+				+ ", rahmengröße=" + rahmengröße + ", gewicht=" + gewicht + "]";
 	}
-	
-	
 }
