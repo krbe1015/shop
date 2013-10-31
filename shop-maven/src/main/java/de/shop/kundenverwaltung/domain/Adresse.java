@@ -13,6 +13,8 @@ public class Adresse implements Serializable {
 	private String plz;
 	private String ort;
 	
+	// test commit
+	
 	@XmlTransient
 	private AbstractKunde kunde;
 	
