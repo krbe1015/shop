@@ -1,49 +1,95 @@
 package de.shop.artikelverwaltung.domain;
 
+import static de.shop.util.Constants.NO_ID;
+import static javax.persistence.TemporalType.TIMESTAMP;
+
+import java.io.Serializable;
+import java.lang.invoke.MethodHandles;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.PostPersist;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.jboss.logging.Logger;
+
+/* später bei einer DB wird das hier benutzt
+@Entity
+@Table(indexes = @Index(columnList = "bezeichnung"))
+@NamedQueries({
+	@NamedQuery(name  = Artikel.FIND_VERFUEGBARE_ARTIKEL,
+            	query = "SELECT      a"
+            	        + " FROM     Artikel a"
+						+ " WHERE    a.ausgesondert = FALSE"
+                        + " ORDER BY a.id ASC"),
+	@NamedQuery(name  = Artikel.FIND_ARTIKEL_BY_BEZ,
+            	query = "SELECT      a"
+                        + " FROM     Artikel a"
+						+ " WHERE    a.bezeichnung LIKE :" + Artikel.PARAM_BEZEICHNUNG
+						+ "          AND a.ausgesondert = FALSE"
+			 	        + " ORDER BY a.id ASC"),
+   	@NamedQuery(name  = Artikel.FIND_ARTIKEL_MAX_PREIS,
+            	query = "SELECT      a"
+                        + " FROM     Artikel a"
+						+ " WHERE    a.preis < :" + Artikel.PARAM_PREIS
+			 	        + " ORDER BY a.id ASC")
+}
+ */
+
+@XmlRootElement
 public class Artikel {
 	
-	private long id;
-	private String bezeichnung;
+	// @Column(length = BEZEICHNUNG_LENGTH_MAX, nullable = false)
+	@NotNull(message = "{artikel.bezeichnung.notNull}")
+	// @Size(max = BEZEICHNUNG_LENGTH_MAX, message = "{artikel.bezeichnung.length}")
+	private String bezeichnung = "";
+	
 	private double preis;
-	/**
-	 * @return the id
-	 */
+
+	@Id
+	@GeneratedValue
+	@Column(nullable = false, updatable = false)
+	private long id = NO_ID;
+	
 	public long getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	/**
-	 * @return the bezeichnung
-	 */
+
 	public String getBezeichnung() {
 		return bezeichnung;
 	}
-	/**
-	 * @param bezeichnung the bezeichnung to set
-	 */
+
 	public void setBezeichnung(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
 	}
-	/**
-	 * @return the preis
-	 */
+
 	public double getPreis() {
 		return preis;
 	}
-	/**
-	 * @param preis the preis to set
-	 */
+
 	public void setPreis(double preis) {
 		this.preis = preis;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,9 +102,7 @@ public class Artikel {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,15 +125,10 @@ public class Artikel {
 			return false;
 		return true;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
 		return "Artikel [id=" + id + ", bezeichnung=" + bezeichnung
 				+ ", preis=" + preis + "]";
 	}
-	
-	
-
 }
