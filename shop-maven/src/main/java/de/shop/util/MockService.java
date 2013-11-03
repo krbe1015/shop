@@ -1,5 +1,6 @@
 package de.shop.util;
 
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,11 @@ import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Eigenschaften;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
+import org.jboss.logging.Logger;
+
 public final class MockService {
+	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
+	
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
@@ -106,19 +111,19 @@ public final class MockService {
 		adresse.setKunde(kunde);
 		kunde.setBestellungen(null);
 		
-		System.out.println("Neuer Kunde: " + kunde);
-		// FIXME use Logger from util
+		LOGGER.debugf("Neuer Kunde: " + kunde);
+		// System.out.println("Neuer Kunde: " + kunde);
 		return kunde;
 	}
 
 	public static void updateKunde(AbstractKunde kunde) {
-		// FIXME use Logger from util
-		System.out.println("Aktualisierter Kunde: " + kunde);
+		// System.out.println("Aktualisierter Kunde: " + kunde);
+		LOGGER.debugf("Aktualisierter Kunde: " + kunde);
 	}
 
 	public static void deleteKunde(Long kundeId) {
-		// FIXME use Logger from util
-		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
+		// System.out.println("Kunde mit ID=" + kundeId + " geloescht");
+		LOGGER.debugf("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
 	private MockService() { /**/ }
