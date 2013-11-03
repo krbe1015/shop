@@ -12,9 +12,9 @@ Abgabe 1
 - [ ] A/P anlegen/aendern
 
 *Mock-Objekte fuer den Anwendungskern*
-- add Logger instead of println()
-- rename Mock.java in Mockkern.java
-- fix/rewrite if (x != y) ..; else ..;
+- [x] add Logger instead of println()
+- [ ] rename Mock.java in Mockkern.java
+- [ ] fix/rewrite if (x != y) ..; else ..;
 
 *"mvn site"*
 - [x] generate maven report
