@@ -33,6 +33,7 @@ import javax.ws.rs.core.UriInfo;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.bestellverwaltung.rest.BestellungResource;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
+// renamed Mock.java into MockObject.java
 import de.shop.util.MockObject;
 import de.shop.util.rest.NotFoundException;
 import de.shop.util.rest.UriHelper;

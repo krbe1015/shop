@@ -107,17 +107,17 @@ public final class MockObject {
 		kunde.setBestellungen(null);
 		
 		System.out.println("Neuer Kunde: " + kunde);
-		// FIXME use Logger from Util
+		// FIXME use Logger from util
 		return kunde;
 	}
 
 	public static void updateKunde(AbstractKunde kunde) {
-		// FIXME use Logger from Util
+		// FIXME use Logger from util
 		System.out.println("Aktualisierter Kunde: " + kunde);
 	}
 
 	public static void deleteKunde(Long kundeId) {
-		// FIXME use Logger from Util
+		// FIXME use Logger from util
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
