@@ -12,7 +12,7 @@ import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Eigenschaften;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
-public final class Mock {
+public final class MockObject {
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
@@ -119,5 +119,5 @@ public final class Mock {
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
-	private Mock() { /**/ }
+	private MockObject() { /**/ }
 }
