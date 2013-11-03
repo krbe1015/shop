@@ -10,7 +10,10 @@ public final class Constants {
 	public static final String REMOVE_LINK = "remove";
 	public static final String FIRST_LINK = "first";
 	public static final String LAST_LINK = "last";
+	public static final String LIST_LINK = "list";
 
 	// TODO make more sinnvolle constants, add use cases
+	public static final Integer NO_ID = null;
+	
 	private Constants() { }
 }
