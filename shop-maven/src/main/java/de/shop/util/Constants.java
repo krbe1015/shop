@@ -11,5 +11,6 @@ public final class Constants {
 	public static final String FIRST_LINK = "first";
 	public static final String LAST_LINK = "last";
 
+	// TODO make more sinnvolle constants, add use cases
 	private Constants() { }
 }
