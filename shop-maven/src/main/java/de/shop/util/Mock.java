@@ -118,6 +118,7 @@ public final class Mock {
 	}
 
 	public static void deleteKunde(Long kundeId) {
+		// FIXME use Logger from Util
 		System.out.println("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
