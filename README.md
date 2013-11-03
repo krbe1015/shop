@@ -14,7 +14,7 @@ Abgabe 1
 *Mock-Objekte fuer den Anwendungskern*
 - [x] add Logger instead of println()
 - [x] rename Mock.java in MockService.java
-- [ ] fix/rewrite if (x != y) ..; else ..;
+- [x] fix/rewrite if (x != y) ..; else ..;
 
 *"mvn site"*
 - [x] generate maven report
