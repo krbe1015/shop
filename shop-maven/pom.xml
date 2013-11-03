@@ -50,14 +50,14 @@ Enable project specific settings
         <name>shop-maven</name>
         
         <url>http://www.iwi.hs-karlsruhe.de</url>
-        <inceptionYear>2009</inceptionYear>
+        <inceptionYear>2013</inceptionYear>
         <description>Semester-Projekt</description>
         
         <!-- scm = source code management = Versionsmanagement -->
         <scm>
-                <connection>scm:git:https://github.com/juergenzimmermann/shop.git</connection>
-                <url>https://github.com/juergenzimmermann/shop.git</url>
-                <developerConnection>scm:git:https://github.com/juergenzimmermann/shop.git</developerConnection>
+                <connection>scm:git:https://github.com/krbe1015/shop.git</connection>
+                <url>https://github.com/krbe1015/shop.git</url>
+                <developerConnection>scm:git:https://github.com/krbe1015/shop.git</developerConnection>
         </scm>
         
         <licenses>
@@ -74,14 +74,14 @@ Enable project specific settings
         
         <developers>
                 <developer>
-                        <id>Juergen.Zimmermann</id>
-                        <name>J&#252;rgen Zimmermann</name>
-                        <email>Juergen.Zimmermann@HS-Karlsruhe.de</email>
+                        <id>krbe1015</id>
+                        <name>BSTZR</name>
+                        <email>krbe1015n@HS-Karlsruhe.de</email>
                         <url>http://www.iwi.hs-karlsruhe.de</url>
                         <organization>Hochschule Karlsruhe</organization>
                         <organizationUrl>http://www.iwi.hs-karlsruhe.de</organizationUrl>
                         <roles>
-                                <role>Dozent</role>
+                                <role>Studentin</role>
                         </roles>
                         <timezone>+1</timezone> <!-- relativ zu GMT -->
                         <properties>
