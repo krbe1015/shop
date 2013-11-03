@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Privatkunde extends AbstractKunde {
 	private static final long serialVersionUID = -3177911520687689458L;
 	
-	private Set<HobbyType> hobbies;
+	private Set<Eigenschaften> eigenschaften;
 
-	public Set<HobbyType> getHobbies() {
-		return hobbies;
+	public Set<Eigenschaften> getEigenschaften() {
+		return eigenschaften;
 	}
-	public void setHobbies(Set<HobbyType> hobbies) {
-		this.hobbies = hobbies;
+	public void setEigenschaften(Set<Eigenschaften> eigenschaften) {
+		this.eigenschaften = eigenschaften;
 	}
 	@Override
 	public String toString() {
-		return "Privatkunde [" + super.toString() + ", hobbies=" + hobbies + "]";
+		return "Privatkunde [" + super.toString() + ", Eigenschaften=" + eigenschaften + "]";
 	}
 }

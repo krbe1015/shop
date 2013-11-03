@@ -1,6 +1,6 @@
 package de.shop.kundenverwaltung.domain;
 
-public enum HobbyType {
+public enum Eigenschaften {
 	SPORT,
 	LESEN,
 	REISEN;

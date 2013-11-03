@@ -9,9 +9,7 @@ public class Adresse implements Serializable {
 	private Long id;
 	private String plz;
 	private String ort;
-	
-	// test commit
-	
+		
 	@XmlTransient
 	private AbstractKunde kunde;
 	
