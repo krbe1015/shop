@@ -106,7 +106,7 @@ public class KundeResource {
                                 .rel(REMOVE_LINK)
                                 .build();
 		
-		return new Link[] { self, add, update, remove };
+		return new Link[] {self, add, update, remove};
 	}
 
 	
@@ -137,7 +137,7 @@ public class KundeResource {
 			setStructuralLinks(k, uriInfo);
 		}
 		
-		return Response.ok(new GenericEntity<List<? extends AbstractKunde>>(kunden){})
+		return Response.ok(new GenericEntity<List<? extends AbstractKunde>>(kunden) { } )
                        .links(getTransitionalLinksKunden(kunden, uriInfo))
                        .build();
 	}
@@ -155,7 +155,7 @@ public class KundeResource {
                               .rel(LAST_LINK)
                               .build();
 		
-		return new Link[] { first, last };
+		return new Link[] {first, last};
 	}
 	
 	@GET

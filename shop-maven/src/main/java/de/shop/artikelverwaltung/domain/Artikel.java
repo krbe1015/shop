@@ -2,9 +2,9 @@ package de.shop.artikelverwaltung.domain;
 
 public class Artikel {
 	
-	long id;
-	String bezeichnung;
-	double preis;
+	private long id;
+	private String bezeichnung;
+	private double preis;
 	/**
 	 * @return the id
 	 */
@@ -67,11 +67,12 @@ public class Artikel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Artikel other = (Artikel) obj;
+		final Artikel other = (Artikel) obj;
 		if (bezeichnung == null) {
 			if (other.bezeichnung != null)
 				return false;
-		} else if (!bezeichnung.equals(other.bezeichnung))
+		} 
+		else if (!bezeichnung.equals(other.bezeichnung))
 			return false;
 		if (id != other.id)
 			return false;
