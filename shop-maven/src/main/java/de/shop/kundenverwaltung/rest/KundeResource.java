@@ -116,7 +116,7 @@ public class KundeResource {
 	@GET
 	public Response findKundenByNachname(@QueryParam(KUNDEN_NACHNAME_QUERY_PARAM) String nachname) {
 		List<? extends AbstractKunde> kunden = null;
-		// FIXME ODER operator könnte probleme machen
+		// FIXME ODER operator koennte probleme machen
 		if (nachname == null || nachname.isEmpty()) {
 			// TODO Anwendungskern statt MockService, Verwendung von Locale
 			kunden = MockService.findAllKunden();
