@@ -4,10 +4,10 @@ SHOP
 Abgabe 1
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
-- [ ] Suchen K B A/P (findAll{Kunden,Bestellungen,Artikel}ById) GET
+- [x] Suchen K B A/P (findAll{Kunden,Bestellungen,Artikel}ById) GET
 
 *Kunde registrieren u. aendern, Bestellung inkl. Positionen aufgeben, Artikel/Produkt anlegen u. aendern*
-- [ ] K reg/alter (createKunde, updateKunde) POST PUT
+- [x] K reg/alter (createKunde, updateKunde) POST PUT
 - [ ] B/P aufgeben (createBestellung, createBestellPosition) POST
 - [ ] A/P anlegen/aendern (createArtikel, createProdukt) POST
 
