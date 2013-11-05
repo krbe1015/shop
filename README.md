@@ -1,7 +1,7 @@
 SHOP
 ====
 
-Abgabe 1
+Abgabe 1 (!!!!!!!!!!!!!!!!!!!AENDERUNGEN IM BRANCH EXPERIMENTAL!!!!!!!!!!!!!!!!!!!)
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
 - [x] Suchen K B A/P (findAll{Kunden,Bestellungen,Artikel}ById) GET
