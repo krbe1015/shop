@@ -8,8 +8,8 @@ Abgabe 1 (!!!!!!!!!!!!!!!!!!!AENDERUNGEN IM BRANCH EXPERIMENTAL!!!!!!!!!!!!!!!!!
 
 *Kunde registrieren u. aendern, Bestellung inkl. Positionen aufgeben, Artikel/Produkt anlegen u. aendern*
 - [x] K reg/alter (createKunde, updateKunde) POST PUT
-- [ ] B/P aufgeben (createBestellung, createBestellPosition) POST
-- [ ] A/P anlegen/aendern (create/updateArtikel, create/updateProdukt) POST PUT
+- [/] B/P aufgeben (createBestellung, createBestellPosition) POST
+- [x] A/P anlegen/aendern (create/updateArtikel, create/updateProdukt) POST PUT
 
 *Mock-Objekte fuer den Anwendungskern*
 - [x] add Logger instead of println()
