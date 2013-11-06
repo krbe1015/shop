@@ -104,16 +104,17 @@ public final class MockService {
 		bestellung.setAusgeliefert(false);
 		bestellung.setKunde(kunde);
 		bestellung.setGesamtpreis(DUMMY_PREIS);
-		final List<Bestellposition> bestellposition = new ArrayList<>();
-        for (int i = 1; i < 7; i++) {
-        		final Bestellposition bp = new Bestellposition();
-                bp.setAnzahl(DUMMY_ANZAHL);
-                bp.setArtikel(findArtikelById(Long.valueOf(i)));
-                
-                bestellposition.add(bp);
-        }
-        bestellung.setBestellposition(bestellposition);
-        bestellung.setGesamtpreis(bestellung.gesamtpreisBerechnung());
+		
+//		final List<Bestellposition> bestellposition = new ArrayList<>();
+//        for (int i = 1; i < 7; i++) {
+//        		final Bestellposition bp = new Bestellposition();
+//                bp.setAnzahl(DUMMY_ANZAHL);
+//                bp.setArtikel(findArtikelById(Long.valueOf(i)));
+//                
+//                bestellposition.add(bp);
+//        }
+//        bestellung.setBestellposition(bestellposition);
+//        bestellung.setGesamtpreis(bestellung.gesamtpreisBerechnung());
 		
 		return bestellung;
 	}

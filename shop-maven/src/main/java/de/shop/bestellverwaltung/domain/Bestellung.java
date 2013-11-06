@@ -74,18 +74,20 @@ public class Bestellung {
 		this.kundeUri = kundeUri;
 	}
 	
-	public BigDecimal gesamtpreisBerechnung() {
-        BigDecimal gpb = 
-        		new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
-        
-        // FIXME error with datatype
-        for (Bestellposition bp : bestellposition) {
-        	BigDecimal b = new BigDecimal(bp.getAnzahl());
-        	gpb = (bp.getArtikel().getPreis());
-        	gpb = gpb.multiply(b);
-        }
-        return gpb;
-	}
+//	public BigDecimal gesamtpreisBerechnung() {
+//        BigDecimal gpb = 
+//        		new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
+//        
+//        // FIXME error with datatype
+//        for (Bestellposition bp : bestellposition) {
+//        	BigDecimal b = new BigDecimal(bp.getAnzahl());
+//        	// TODO getPreis from Artikel, but look in Bestellposition
+//        	gpb = (bp.getArtikel().getPreis());
+//        	// gpb = (x.getPreis());
+//        	gpb = gpb.multiply(b);
+//        }
+//        return gpb;
+//	}
 
 	@Override
 	public int hashCode() {
