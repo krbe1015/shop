@@ -1,7 +1,7 @@
 SHOP
 ====
 
-Abgabe 1 (!!!!!!!!!!!!!!!!!!!AENDERUNGEN IM BRANCH EXPERIMENTAL!!!!!!!!!!!!!!!!!!!)
+Abgabe 1
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
 - [x] Suchen K B A/P (find{Kunden,Bestellungen,Artikel}) GET
