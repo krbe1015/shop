@@ -23,6 +23,7 @@ public final class MockService {
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
+	private static final double dp = 11.1;
 
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
@@ -122,7 +123,7 @@ public final class MockService {
 		final Artikel artikel = new Artikel();
 		artikel.setId(id);
 		artikel.setBezeichnung("Bezeichnung:" + id);
-		artikel.setPreis(new Double(11.1 + id));
+		artikel.setPreis(new Double(dp + id));
 		return artikel;
 	}
 	
