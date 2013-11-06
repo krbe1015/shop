@@ -1,6 +1,12 @@
 package de.shop.bestellverwaltung.rest;
 
 import static de.shop.util.Constants.SELF_LINK;
+// import static de.shop.util.Constants.ADD_LINK;
+// import static de.shop.util.Constants.FIRST_LINK;
+// import static de.shop.util.Constants.LAST_LINK;
+// import static de.shop.util.Constants.REMOVE_LINK;
+// import static de.shop.util.Constants.SELF_LINK;
+// import static de.shop.util.Constants.UPDATE_LINK;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
@@ -10,6 +16,8 @@ import java.net.URI;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -18,6 +26,7 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+// import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.rest.KundeResource;
@@ -76,4 +85,22 @@ public class BestellungResource {
 	public URI getUriBestellung(Bestellung bestellung, UriInfo uriInfo) {
 		return uriHelper.getUri(BestellungResource.class, "findBestellungById", bestellung.getId(), uriInfo);
 	}
+	
+	@POST
+	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML})
+	@Produces
+	public Response createBestellung(Bestellung bestellung) {
+		bestellung = MockService.createBestellung(bestellung);
+		setStructuralLinks(bestellung, uriInfo);
+		return Response.created(getUriBestellung(bestellung, uriInfo))
+		           .build();
+	}
+	
+	@PUT
+	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML})
+	@Produces
+	public void updateBestellung(Bestellung bestellung) {
+		MockService.updateBestellung(bestellung);
+	}
+	
 }
