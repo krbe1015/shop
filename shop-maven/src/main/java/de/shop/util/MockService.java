@@ -24,9 +24,10 @@ public final class MockService {
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
-	// dummy fuer findArtikelById()
-	private static final BigDecimal DUMMY_PREIS = new BigDecimal(11.1);
-
+	// dummys
+	private static final BigDecimal DUMMY_PREIS = new BigDecimal(0.1000000000000000055511151231257827021181583404541015625);
+	private static final int DUMMY_ANZAHL = 3;
+	
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
 			return null;
@@ -101,11 +102,11 @@ public final class MockService {
 		bestellung.setId(id);
 		bestellung.setAusgeliefert(false);
 		bestellung.setKunde(kunde);
-		bestellung.setGesamtpreis(new BigDecimal(9001.0));
-		List<Bestellposition> bestellposition = new ArrayList<>();
-        for(int i = 1; i < 7; i++) {
-        		Bestellposition bp = new Bestellposition();
-                bp.setAnzahl(3);
+		bestellung.setGesamtpreis(DUMMY_PREIS);
+		final List<Bestellposition> bestellposition = new ArrayList<>();
+        for (int i = 1; i < 7; i++) {
+        		final Bestellposition bp = new Bestellposition();
+                bp.setAnzahl(DUMMY_ANZAHL);
                 bp.setArtikel(findArtikelById(Long.valueOf(i)));
                 
                 bestellposition.add(bp);

@@ -73,7 +73,7 @@ public class KundeResource {
             for (AbstractKunde k : kunden) {
                     setStructuralLinks(k, uriInfo);
             }
-            return Response.ok(new GenericEntity<List<? extends AbstractKunde>>(kunden){})
+            return Response.ok(new GenericEntity<List<? extends AbstractKunde>>(kunden) { } )
                    .links(getTransitionalLinksKunden(kunden, uriInfo))
                    .build();                        
     }

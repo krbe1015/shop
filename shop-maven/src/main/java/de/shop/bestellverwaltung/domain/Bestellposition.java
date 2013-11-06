@@ -54,7 +54,7 @@ public class Bestellposition {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			Bestellposition other = (Bestellposition) obj;
+			final Bestellposition other = (Bestellposition) obj;
 			if (anzahl != other.anzahl)
 				return false;
 			if (artikel == null) {
