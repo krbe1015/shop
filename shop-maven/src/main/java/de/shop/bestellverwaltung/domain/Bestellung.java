@@ -1,6 +1,6 @@
 package de.shop.bestellverwaltung.domain;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 import java.net.URI;
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,12 +11,14 @@ import javax.xml.bind.annotation.XmlTransient;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 
 @XmlRootElement
-public class Bestellung implements Serializable {
-	private static final long serialVersionUID = 1618359234119003714L;
+public class Bestellung {
+	// private static final long serialVersionUID = 1618359234119003714L;
 	
 	private Long id;
 	private BigDecimal gesamtpreis;
 	private boolean ausgeliefert;
+	
+	@XmlTransient
 	private List<Bestellposition> bestellposition;
 	
 	@XmlTransient
@@ -71,10 +73,6 @@ public class Bestellung implements Serializable {
 	public void setKundeUri(URI kundeUri) {
 		this.kundeUri = kundeUri;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 	
 	public BigDecimal gesamtpreisBerechnung() {
         BigDecimal gpb = 
@@ -82,9 +80,9 @@ public class Bestellung implements Serializable {
         
         // FIXME error with datatype
         for (Bestellposition bp : bestellposition) {
-        	// BigDecimal b = new BigDecimal(bp.getAnzahl());
+        	BigDecimal b = new BigDecimal(bp.getAnzahl());
         	gpb = gpb.add((bp.getArtikel().getPreis()).
-        			multiply(new BigDecimal(bp.getAnzahl())));
+        			multiply(b));
         }
         return gpb;
 	}
