@@ -23,6 +23,7 @@ public final class MockService {
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
+	// dummy fuer findArtikelById()
 	private static final double dp = 11.1;
 
 	public static AbstractKunde findKundeById(Long id) {
