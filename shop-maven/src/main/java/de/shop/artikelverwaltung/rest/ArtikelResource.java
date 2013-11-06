@@ -39,10 +39,7 @@ public class ArtikelResource {
 	
 	@Inject
 	private UriHelper uriHelper;
-	
-	// @Inject
-	// private ArtikelResource artikelResource;
-	
+		
 	@GET
 	@Path("{id:[1-9][0-9]*}")
 	public Response findArtikelById(@PathParam("id") Long id, @Context UriInfo uriInfo) {
@@ -55,17 +52,6 @@ public class ArtikelResource {
 	                   .links(getTransitionalLinks(artikel, uriInfo))
 	                   .build();
 	}
-	
-/*	
- * public void setStructuralLinks(Bestellung bestellung, UriInfo uriInfo) {
-		// URI fuer Kunde setzen
-		final Artikel artikel = artikel.getArtikel();
-		if (artic != null) {
-			final URI kundeUri = kundeResource.getUriKunde(bestellung.getKunde(), uriInfo);
-			bestellung.setKundeUri(kundeUri);
-		}
-	}
-*/
 	
 	private Link[] getTransitionalLinks(Artikel artikel, UriInfo uriInfo) {
 		final Link self = Link.fromUri(getUriArtikel(artikel, uriInfo))

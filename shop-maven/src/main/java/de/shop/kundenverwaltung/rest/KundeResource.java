@@ -62,6 +62,23 @@ public class KundeResource {
 	}
 	
 	@GET
+    @Path("alle")
+    public Response findAllKunden() {
+            List<? extends AbstractKunde> kunden = null;
+            // TODO Anwendungskern statt Mock, Verwendung von Locale
+            kunden = MockService.findAllKunden();
+            if (kunden.isEmpty()) {
+                    throw new NotFoundException("Wir haben zur zeit keine Kunden!");
+            }
+            for (AbstractKunde k : kunden) {
+                    setStructuralLinks(k, uriInfo);
+            }
+            return Response.ok(new GenericEntity<List<? extends AbstractKunde>>(kunden){})
+                   .links(getTransitionalLinksKunden(kunden, uriInfo))
+                   .build();                        
+    }
+	
+	@GET
 	@Path("{" + KUNDEN_ID_PATH_PARAM + ":[1-9][0-9]*}")
 	public Response findKundeById(@PathParam(KUNDEN_ID_PATH_PARAM) Long id) {
 		// TODO Anwendungskern statt MockService, Verwendung von Locale

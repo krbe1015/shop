@@ -1,7 +1,7 @@
 package de.shop.util;
 
 import java.lang.invoke.MethodHandles;
-// import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.Set;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
+import de.shop.bestellverwaltung.domain.Bestellposition;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
 import de.shop.kundenverwaltung.domain.Firmenkunde;
@@ -24,7 +25,7 @@ public final class MockService {
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
 	// dummy fuer findArtikelById()
-	private static final double dp = 11.1;
+	private static final BigDecimal DUMMY_PREIS = new BigDecimal(11.1);
 
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
@@ -100,6 +101,17 @@ public final class MockService {
 		bestellung.setId(id);
 		bestellung.setAusgeliefert(false);
 		bestellung.setKunde(kunde);
+		bestellung.setGesamtpreis(new BigDecimal(9001.0));
+		List<Bestellposition> bestellposition = new ArrayList<>();
+        for(int i = 1; i < 7; i++) {
+        		Bestellposition bp = new Bestellposition();
+                bp.setAnzahl(3);
+                bp.setArtikel(findArtikelById(Long.valueOf(i)));
+                
+                bestellposition.add(bp);
+        }
+        bestellung.setBestellposition(bestellposition);
+        bestellung.setGesamtpreis(bestellung.gesamtpreisBerechnung());
 		
 		return bestellung;
 	}
@@ -123,8 +135,9 @@ public final class MockService {
 
 		final Artikel artikel = new Artikel();
 		artikel.setId(id);
-		artikel.setBezeichnung("Bezeichnung:" + id);
-		artikel.setPreis(new Double(dp + id));
+		artikel.setBezeichnung("Bezeichnung: " + id);
+		// TODO add + id into setpreis
+		artikel.setPreis(DUMMY_PREIS);
 		return artikel;
 	}
 	
