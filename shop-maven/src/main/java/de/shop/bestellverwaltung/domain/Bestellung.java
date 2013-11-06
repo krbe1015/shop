@@ -81,8 +81,8 @@ public class Bestellung {
         // FIXME error with datatype
         for (Bestellposition bp : bestellposition) {
         	BigDecimal b = new BigDecimal(bp.getAnzahl());
-        	gpb = gpb.add((bp.getArtikel().getPreis()).
-        			multiply(b));
+        	gpb = (bp.getArtikel().getPreis());
+        	gpb = gpb.multiply(b);
         }
         return gpb;
 	}
