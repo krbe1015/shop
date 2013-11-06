@@ -114,6 +114,7 @@ public class KundeResource {
 
 	
 	@GET
+	@Path("nachname")
 	public Response findKundenByNachname(@QueryParam(KUNDEN_NACHNAME_QUERY_PARAM) String nachname) {
 		List<? extends AbstractKunde> kunden = null;
 		// FIXME ODER operator koennte probleme machen
