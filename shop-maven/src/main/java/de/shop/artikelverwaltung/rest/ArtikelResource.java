@@ -72,7 +72,7 @@ public class ArtikelResource {
                               .rel(SELF_LINK)
                               .build();
 
-		return new Link[] { self };
+		return new Link[] {self};
 	}
 	
 	public URI getUriArtikel(Artikel artikel, UriInfo uriInfo) {
@@ -80,7 +80,7 @@ public class ArtikelResource {
 	}
 	
 	@POST
-	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML})
+	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
 	public Response createArtikel(Artikel artikel) {
 		artikel = MockService.createArtikel(artikel);
@@ -89,7 +89,7 @@ public class ArtikelResource {
 	}
 	
 	@PUT
-	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML})
+	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
 	public void updateArtikel(Artikel artikel) {
 		MockService.updateArtikel(artikel);
