@@ -9,7 +9,7 @@ import java.util.Set;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
-import de.shop.bestellverwaltung.domain.Bestellposition;
+// import de.shop.bestellverwaltung.domain.Bestellposition;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
 import de.shop.kundenverwaltung.domain.Firmenkunde;
@@ -103,7 +103,7 @@ public final class MockService {
 		bestellung.setId(id);
 		bestellung.setAusgeliefert(false);
 		bestellung.setKunde(kunde);
-		bestellung.setGesamtpreis(DUMMY_PREIS);
+//		bestellung.setGesamtpreis(DUMMY_PREIS);
 		
 //		final List<Bestellposition> bestellposition = new ArrayList<>();
 //        for (int i = 1; i < 7; i++) {
