@@ -1,11 +1,13 @@
 package de.shop.util;
 
 import java.lang.invoke.MethodHandles;
+// import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
@@ -99,6 +101,45 @@ public final class MockService {
 		
 		return bestellung;
 	}
+	
+	public static Bestellung createBestellung(Bestellung bestellung) {
+		final int id = 9000;
+		bestellung = findBestellungById(Long.valueOf(id));
+		LOGGER.debugf("Erstelle Bestellung: " + bestellung);
+		return bestellung;
+	}
+	
+	public static void updateBestellung(Bestellung bestellung) {
+		
+		LOGGER.debugf("Aktualisierte Bestellung: " + bestellung);
+	}
+	
+	public static Artikel findArtikelById(Long id) {
+		if (id > MAX_ID) {
+			return null;
+		}
+
+		final Artikel artikel = new Artikel();
+		artikel.setId(id);
+		artikel.setBezeichnung("Bezeichnung:" + id);
+		artikel.setPreis(new Double(11.1 + id));
+		return artikel;
+	}
+	
+	public static Artikel createArtikel(Artikel artikel) {
+		final String bezeichnung = artikel.getBezeichnung();
+		artikel.setId(Long.valueOf(bezeichnung.length()));
+		// final Double preis = artikel.getPreis();
+		artikel.setPreis(artikel.getPreis());
+		
+		LOGGER.debugf("Ersteller Artikel: " + artikel);
+		return artikel;
+	}
+	
+	public static void updateArtikel(Artikel artikel) {
+		
+		LOGGER.debugf("Aktualisierter Artikel: " + artikel);
+	}
 
 	public static AbstractKunde createKunde(AbstractKunde kunde) {
 		// Neue IDs fuer Kunde und zugehoerige Adresse
@@ -111,17 +152,15 @@ public final class MockService {
 		kunde.setBestellungen(null);
 		
 		LOGGER.debugf("Neuer Kunde: " + kunde);
-		// System.out.println("Neuer Kunde: " + kunde);
 		return kunde;
 	}
 
 	public static void updateKunde(AbstractKunde kunde) {
-		// System.out.println("Aktualisierter Kunde: " + kunde);
+		
 		LOGGER.debugf("Aktualisierter Kunde: " + kunde);
 	}
 
 	public static void deleteKunde(Long kundeId) {
-		// System.out.println("Kunde mit ID=" + kundeId + " geloescht");
 		LOGGER.debugf("Kunde mit ID=" + kundeId + " geloescht");
 	}
 
