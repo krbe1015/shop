@@ -25,7 +25,8 @@ public final class MockService {
 	private static final int MAX_KUNDEN = 8;
 	private static final int MAX_BESTELLUNGEN = 4;
 	// dummys
-	private static final BigDecimal DUMMY_PREIS = new BigDecimal(0.1000000000000000055511151231257827021181583404541015625);
+	private static final BigDecimal DUMMY_PREIS =
+			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
 	private static final int DUMMY_ANZAHL = 3;
 	
 	public static AbstractKunde findKundeById(Long id) {

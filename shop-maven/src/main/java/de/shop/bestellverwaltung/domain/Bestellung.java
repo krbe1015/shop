@@ -17,8 +17,6 @@ public class Bestellung implements Serializable {
 	private Long id;
 	private BigDecimal gesamtpreis;
 	private boolean ausgeliefert;
-	
-	@XmlTransient
 	private List<Bestellposition> bestellposition;
 	
 	@XmlTransient
@@ -79,12 +77,14 @@ public class Bestellung implements Serializable {
 	}
 	
 	public BigDecimal gesamtpreisBerechnung() {
-        BigDecimal gpb = new BigDecimal(0.00);
+        BigDecimal gpb = 
+        		new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
         
         // FIXME error with datatype
         for (Bestellposition bp : bestellposition) {
         	// BigDecimal b = new BigDecimal(bp.getAnzahl());
-        	gpb = gpb.add((bp.getArtikel().getPreis()).multiply(new BigDecimal(bp.getAnzahl())));
+        	gpb = gpb.add((bp.getArtikel().getPreis()).
+        			multiply(new BigDecimal(bp.getAnzahl())));
         }
         return gpb;
 	}
