@@ -2,7 +2,7 @@ package de.shop.util;
 
 import java.lang.invoke.MethodHandles;
 import java.math.BigDecimal;
-// import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,13 +24,10 @@ public final class MockService {
 	
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
-	private static final int MAX_BESTELLUNGEN = 4;
 	// dummys
 	private static final BigDecimal DUMMY_PREIS =
 			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
-	private static final int DUMMY_ANZAHL = 3;
-	// Nur gemacht wegen checkstyle... "variabel Preis sollte als static deklariert sein"
-	// private static final BigDecimal PSEUDO_PRICE = new BigDecimal("1.4");
+	private static final int MAX_BESTELLUNGEN = 4;
 
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
@@ -144,6 +141,9 @@ public final class MockService {
 		artikel.setBezeichnung("Bezeichnung: " + id);
 		// TODO add + id into setpreis
 		artikel.setPreis(DUMMY_PREIS);
+		artikel.setId(id);
+		artikel.setBezeichnung("Bezeichnung:" + id);
+		// artikel.setPreis(PSEUDO_PRICE);
 		return artikel;
 	}
 	

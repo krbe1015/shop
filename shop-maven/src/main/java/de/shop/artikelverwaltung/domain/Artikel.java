@@ -1,8 +1,8 @@
 package de.shop.artikelverwaltung.domain;
 
 //import java.io.Serializable;
-import java.net.URI;
 import java.math.BigDecimal;
+import java.net.URI;
 
 import javax.xml.bind.annotation.XmlRootElement;
 //import javax.xml.bind.annotation.XmlTransient;
@@ -13,7 +13,6 @@ public class Artikel {
 	private String bezeichnung;	
 	private BigDecimal preis;
 	private Long id;
-	
 	private URI artikelUri;
 	
 	public Long getId() {
@@ -45,12 +44,6 @@ public class Artikel {
 	}
 	public void setArtikelUri(URI artikelUri) {
 		this.artikelUri = artikelUri;
-	}
-
-	@Override
-	public String toString() {
-		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
-				+ ", id=" + id + ", artikelUri=" + artikelUri + "]";
 	}
 
 	@Override
@@ -87,6 +80,7 @@ public class Artikel {
 		} 
 		else if (!bezeichnung.equals(other.bezeichnung))
 			return false;
+
 		if (preis == null) {
 			if (other.preis != null)
 				return false;
@@ -95,4 +89,13 @@ public class Artikel {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
+				+ ", id=" + id + ", artikelUri=" + artikelUri + "]";
+	}
+	
+	
 }
+	
