@@ -13,7 +13,7 @@ public class Artikel {
 	private String bezeichnung;	
 	private BigDecimal preis;
 	private Long id;
-	private URI artikelUri;
+	// private URI artikelUri;
 	
 	public Long getId() {
 		return id;
@@ -39,19 +39,19 @@ public class Artikel {
 		this.preis = preis;
 	}
 	
-	public URI getArtikelUri() {
-		return artikelUri;
-	}
-	public void setArtikelUri(URI artikelUri) {
-		this.artikelUri = artikelUri;
-	}
+//	public URI getArtikelUri() {
+//		return artikelUri;
+//	}
+//	public void setArtikelUri(URI artikelUri) {
+//		this.artikelUri = artikelUri;
+//	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((artikelUri == null) ? 0 : artikelUri.hashCode());
+//		result = prime * result
+//				+ ((artikelUri == null) ? 0 : artikelUri.hashCode());
 		result = prime * result
 				+ ((bezeichnung == null) ? 0 : bezeichnung.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
@@ -68,12 +68,12 @@ public class Artikel {
 		if (getClass() != obj.getClass())
 			return false;
 		final Artikel other = (Artikel) obj;
-		if (artikelUri == null) {
-			if (other.artikelUri != null)
-				return false;
-		} 
-		else if (!artikelUri.equals(other.artikelUri))
-			return false;
+//		if (artikelUri == null) {
+//			if (other.artikelUri != null)
+//				return false;
+//		} 
+//		else if (!artikelUri.equals(other.artikelUri))
+//			return false;
 		if (bezeichnung == null) {
 			if (other.bezeichnung != null)
 				return false;
@@ -93,7 +93,7 @@ public class Artikel {
 	@Override
 	public String toString() {
 		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
-				+ ", id=" + id + ", artikelUri=" + artikelUri + "]";
+				+ ", id=" + id + "]";
 	}
 	
 	
