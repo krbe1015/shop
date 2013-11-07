@@ -29,6 +29,8 @@ public final class MockService {
 			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
 	private static final int MAX_BESTELLUNGEN = 4;
 
+	// LASST DIE FINGER VON GIT!
+	
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
 			return null;
