@@ -2,21 +2,22 @@ package de.shop.util;
 
 import java.lang.invoke.MethodHandles;
 import java.math.BigDecimal;
+// import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.jboss.logging.Logger;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.bestellverwaltung.domain.Bestellung;
 // import de.shop.bestellverwaltung.domain.Bestellposition;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.domain.Adresse;
-import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Eigenschaften;
+import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Privatkunde;
-
-import org.jboss.logging.Logger;
 
 public final class MockService {
 	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
@@ -28,7 +29,9 @@ public final class MockService {
 	private static final BigDecimal DUMMY_PREIS =
 			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
 	private static final int DUMMY_ANZAHL = 3;
-	
+	// Nur gemacht wegen checkstyle... "variabel Preis sollte als static deklariert sein"
+	// private static final BigDecimal PSEUDO_PRICE = new BigDecimal("1.4");
+
 	public static AbstractKunde findKundeById(Long id) {
 		if (id > MAX_ID) {
 			return null;
