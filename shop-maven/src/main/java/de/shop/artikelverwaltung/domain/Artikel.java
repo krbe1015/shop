@@ -1,6 +1,7 @@
 package de.shop.artikelverwaltung.domain;
 
 //import java.io.Serializable;
+import java.math.BigDecimal;
 import java.net.URI;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -10,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Artikel {
 	
 	private String bezeichnung;	
-	private double preis;
+	private BigDecimal preis;
 	private long id;
 	
 	private URI artikelUri;
@@ -31,11 +32,11 @@ public class Artikel {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public double getPreis() {
+	public BigDecimal getPreis() {
 		return preis;
 	}
 
-	public void setPreis(double preis) {
+	public void setPreis(BigDecimal preis) {
 		this.preis = preis;
 	}
 	
@@ -47,12 +48,6 @@ public class Artikel {
 	}
 
 	@Override
-	public String toString() {
-		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
-				+ ", id=" + id + ", artikelUri=" + artikelUri + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -61,9 +56,7 @@ public class Artikel {
 		result = prime * result
 				+ ((bezeichnung == null) ? 0 : bezeichnung.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
-		long temp;
-		temp = Double.doubleToLongBits(preis);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((preis == null) ? 0 : preis.hashCode());
 		return result;
 	}
 
@@ -75,24 +68,33 @@ public class Artikel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		final Artikel other = (Artikel) obj;
+		Artikel other = (Artikel) obj;
 		if (artikelUri == null) {
 			if (other.artikelUri != null)
 				return false;
-		} 
-		else if (!artikelUri.equals(other.artikelUri))
+		} else if (!artikelUri.equals(other.artikelUri))
 			return false;
 		if (bezeichnung == null) {
 			if (other.bezeichnung != null)
 				return false;
-		} 
-		else if (!bezeichnung.equals(other.bezeichnung))
+		} else if (!bezeichnung.equals(other.bezeichnung))
 			return false;
 		if (id != other.id)
 			return false;
-		if (Double.doubleToLongBits(preis) != Double
-				.doubleToLongBits(other.preis))
+		if (preis == null) {
+			if (other.preis != null)
+				return false;
+		} else if (!preis.equals(other.preis))
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
+				+ ", id=" + id + ", artikelUri=" + artikelUri + "]";
+	}
+	
+	
 }
+	
