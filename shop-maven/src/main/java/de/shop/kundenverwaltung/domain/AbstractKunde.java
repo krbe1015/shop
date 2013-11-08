@@ -14,6 +14,7 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 import de.shop.bestellverwaltung.domain.Bestellung;
 
+// zwei kundenarten
 @XmlRootElement
 @XmlSeeAlso({ Firmenkunde.class, Privatkunde.class })
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
@@ -31,6 +32,7 @@ public abstract class AbstractKunde implements Serializable {
 	private String email;
 	private Adresse adresse;
 	
+	// verknuepfung mit bestellung
 	@XmlTransient
 	private List<Bestellung> bestellungen;
 	

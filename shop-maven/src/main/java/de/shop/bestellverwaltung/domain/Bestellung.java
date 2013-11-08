@@ -18,6 +18,7 @@ public class Bestellung {
 	private BigDecimal gesamtpreis;
 	private boolean ausgeliefert;
 	
+	// verknuepfung mit bestellposition
 	@XmlTransient
 	private List<Bestellposition> bestellposition;
 	

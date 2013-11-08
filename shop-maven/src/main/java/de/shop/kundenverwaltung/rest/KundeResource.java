@@ -54,6 +54,7 @@ public class KundeResource {
 	@Inject
 	private UriHelper uriHelper;
 	
+	// aktuelle software version, DUMMY
 	@GET
 	@Produces({ TEXT_PLAIN, APPLICATION_JSON })
 	@Path("version")
@@ -61,6 +62,7 @@ public class KundeResource {
 		return "1.0";
 	}
 	
+	// finde alle kunden
 	@GET
     @Path("alle")
     public Response findAllKunden() {
@@ -78,6 +80,7 @@ public class KundeResource {
                    .build();                        
     }
 	
+	// finde alle kunden durch ID
 	@GET
 	@Path("{" + KUNDEN_ID_PATH_PARAM + ":[1-9][0-9]*}")
 	public Response findKundeById(@PathParam(KUNDEN_ID_PATH_PARAM) Long id) {
@@ -129,7 +132,7 @@ public class KundeResource {
 		return uriHelper.getUri(KundeResource.class, "findKundeById", kunde.getId(), uriInfo);
 	}
 
-	
+	// finde kunden durch nachnamen
 	@GET
 	@Path("nachname")
 	public Response findKundenByNachname(@QueryParam(KUNDEN_NACHNAME_QUERY_PARAM) String nachname) {
@@ -175,6 +178,7 @@ public class KundeResource {
 		return new Link[] {first, last};
 	}
 	
+	// finde bestellung durch kundenID
 	@GET
 	@Path("{id:[1-9][0-9]*}/bestellungen")
 	public Response findBestellungenByKundeId(@PathParam("id") Long kundeId) {
@@ -217,6 +221,7 @@ public class KundeResource {
 		return new Link[] {self, first, last};
 	}
 	
+	// erstelle kunde
 	@POST
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
@@ -227,6 +232,7 @@ public class KundeResource {
 			           .build();
 	}
 	
+	// update kunde
 	@PUT
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
@@ -235,6 +241,7 @@ public class KundeResource {
 		MockService.updateKunde(kunde);
 	}
 	
+	// loesche kunde
 	@DELETE
 	@Path("{id:[1-9][0-9]*}")
 	@Produces

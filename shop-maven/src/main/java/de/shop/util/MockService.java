@@ -20,6 +20,7 @@ import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
 public final class MockService {
+	// statt println auf console
 	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
 	
 	private static final int MAX_ID = 99;
@@ -36,6 +37,7 @@ public final class MockService {
 			return null;
 		}
 		
+		// modulo fuer variiation
 		final AbstractKunde kunde = id % 2 == 1 ? new Privatkunde() : new Firmenkunde();
 		kunde.setId(id);
 		kunde.setNachname("Nachname" + id);
@@ -59,6 +61,7 @@ public final class MockService {
 		return kunde;
 	}
 
+	// finde alle kunden
 	public static List<AbstractKunde> findAllKunden() {
 		final int anzahl = MAX_KUNDEN;
 		final List<AbstractKunde> kunden = new ArrayList<>(anzahl);
@@ -69,6 +72,7 @@ public final class MockService {
 		return kunden;
 	}
 
+	// finde kunden durch nachname
 	public static List<AbstractKunde> findKundenByNachname(String nachname) {
 		final int anzahl = nachname.length();
 		final List<AbstractKunde> kunden = new ArrayList<>(anzahl);
@@ -80,6 +84,7 @@ public final class MockService {
 		return kunden;
 	}
 	
+	// finde bestellung durch kunde
 	public static List<Bestellung> findBestellungenByKunde(AbstractKunde kunde) {
 		// Beziehungsgeflecht zwischen Kunde und Bestellungen aufbauen
 		final int anzahl = kunde.getId().intValue() % MAX_BESTELLUNGEN + 1;  // 1, 2, 3 oder 4 Bestellungen
@@ -94,6 +99,7 @@ public final class MockService {
 		return bestellungen;
 	}
 
+	// finde bestellung durch ID
 	public static Bestellung findBestellungById(Long id) {
 		if (id > MAX_ID) {
 			return null;
@@ -105,6 +111,7 @@ public final class MockService {
 		bestellung.setId(id);
 		bestellung.setAusgeliefert(false);
 		bestellung.setKunde(kunde);
+		// FIXME gesamtPreis berechnen!
 //		bestellung.setGesamtpreis(DUMMY_PREIS);
 		
 //		final List<Bestellposition> bestellposition = new ArrayList<>();
@@ -121,6 +128,7 @@ public final class MockService {
 		return bestellung;
 	}
 	
+	// erstelle bestellung
 	public static Bestellung createBestellung(Bestellung bestellung) {
 		final int id = 9;
 		bestellung = findBestellungById(Long.valueOf(id));
@@ -128,11 +136,13 @@ public final class MockService {
 		return bestellung;
 	}
 	
+	// update bestellung
 	public static void updateBestellung(Bestellung bestellung) {
 		
 		LOGGER.debugf("Aktualisierte Bestellung: " + bestellung);
 	}
 	
+	// finde artikel durch ID
 	public static Artikel findArtikelById(Long id) {
 		if (id > MAX_ID) {
 			return null;
@@ -149,6 +159,7 @@ public final class MockService {
 		return artikel;
 	}
 	
+	// estelle artikel
 	public static Artikel createArtikel(Artikel artikel) {
 		final String bezeichnung = artikel.getBezeichnung();
 		artikel.setId(Long.valueOf(bezeichnung.length()));
@@ -159,11 +170,13 @@ public final class MockService {
 		return artikel;
 	}
 	
+	// update artikel
 	public static void updateArtikel(Artikel artikel) {
 		
 		LOGGER.debugf("Aktualisierter Artikel: " + artikel);
 	}
 
+	// erstelle kunde
 	public static AbstractKunde createKunde(AbstractKunde kunde) {
 		// Neue IDs fuer Kunde und zugehoerige Adresse
 		// Ein neuer Kunde hat auch keine Bestellungen
@@ -178,11 +191,13 @@ public final class MockService {
 		return kunde;
 	}
 
+	// update kunde
 	public static void updateKunde(AbstractKunde kunde) {
 		
 		LOGGER.debugf("Aktualisierter Kunde: " + kunde);
 	}
 
+	// loesche kunde
 	public static void deleteKunde(Long kundeId) {
 		LOGGER.debugf("Kunde mit ID=" + kundeId + " geloescht");
 	}

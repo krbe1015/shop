@@ -10,6 +10,7 @@ import de.shop.artikelverwaltung.domain.Artikel;
 @XmlRootElement
 public class Bestellposition {
 
+		// verknuepfung mit artikel
 		@XmlTransient
 		private Artikel artikel;
 		

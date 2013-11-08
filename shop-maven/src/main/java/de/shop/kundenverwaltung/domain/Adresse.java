@@ -10,6 +10,7 @@ public class Adresse implements Serializable {
 	private String plz;
 	private String ort;
 		
+	// eigenschaften eines kunden
 	@XmlTransient
 	private AbstractKunde kunde;
 	

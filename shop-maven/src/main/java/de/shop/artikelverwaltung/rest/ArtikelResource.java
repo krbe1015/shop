@@ -40,6 +40,7 @@ public class ArtikelResource {
 	@Inject
 	private UriHelper uriHelper;
 		
+	// finde artikel durch ID
 	@GET
 	@Path("{id:[1-9][0-9]*}")
 	public Response findArtikelById(@PathParam("id") Long id, @Context UriInfo uriInfo) {
@@ -53,6 +54,7 @@ public class ArtikelResource {
 	                   .build();
 	}
 	
+	// hole links
 	private Link[] getTransitionalLinks(Artikel artikel, UriInfo uriInfo) {
 		final Link self = Link.fromUri(getUriArtikel(artikel, uriInfo))
                               .rel(SELF_LINK)
@@ -61,10 +63,12 @@ public class ArtikelResource {
 		return new Link[] {self};
 	}
 	
+	// hole URI link
 	public URI getUriArtikel(Artikel artikel, UriInfo uriInfo) {
 		return uriHelper.getUri(ArtikelResource.class, "findArtikelById", artikel.getId(), uriInfo);
 	}
 	
+	// erzeuge artikel
 	@POST
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
@@ -74,6 +78,7 @@ public class ArtikelResource {
 		           .build();
 	}
 	
+	// update artikel
 	@PUT
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces

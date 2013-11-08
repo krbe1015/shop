@@ -13,6 +13,7 @@ public final class Constants {
 	public static final String LIST_LINK = "list";
 
 	// TODO make more sinnvolle constants, add use cases
+	// FIXME KEINE_ID
 	public static final Integer NO_ID = null;
 	
 	private Constants() { }
