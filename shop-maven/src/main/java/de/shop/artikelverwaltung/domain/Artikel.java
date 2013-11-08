@@ -3,6 +3,7 @@ package de.shop.artikelverwaltung.domain;
 //import java.io.Serializable;
 import java.math.BigDecimal;
 // import java.net.URI;
+// new branch m1
 
 import javax.xml.bind.annotation.XmlRootElement;
 //import javax.xml.bind.annotation.XmlTransient;
