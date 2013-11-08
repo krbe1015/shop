@@ -2,7 +2,7 @@ package de.shop.artikelverwaltung.domain;
 
 //import java.io.Serializable;
 import java.math.BigDecimal;
-import java.net.URI;
+// import java.net.URI;
 
 import javax.xml.bind.annotation.XmlRootElement;
 //import javax.xml.bind.annotation.XmlTransient;
@@ -94,8 +94,5 @@ public class Artikel {
 	public String toString() {
 		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
 				+ ", id=" + id + "]";
-	}
-	
-	
-}
-	
+	}	
+}	
