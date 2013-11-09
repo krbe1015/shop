@@ -11,9 +11,11 @@ Abgabe 2 10.12.13
 - [/] B/P aufgeben (createBestellung, createBestellPosition) POST
 - [x] A/P anlegen/aendern (create/updateArtikel, create/updateProdukt) POST PUT
 
-*Mock-Objekte für die DB-Zugriffsschicht
+*Mock-Objekte für die DB-Zugriffsschicht*
+- [ ] 
 
 *"mvn site"*
-- [] generate maven report
+- [ ] generate maven report
 
-*Validierung bei fehlerhaften Daten
+*Validierung bei fehlerhaften Daten*
+- [ ] 
