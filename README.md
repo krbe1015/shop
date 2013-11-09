@@ -11,10 +11,9 @@ Abgabe 1
 - [/] B/P aufgeben (createBestellung, createBestellPosition) POST
 - [x] A/P anlegen/aendern (create/updateArtikel, create/updateProdukt) POST PUT
 
-*Mock-Objekte fuer den Anwendungskern*
-- [x] add Logger instead of println()
-- [x] rename Mock.java in MockService.java
-- [x] fix/rewrite if (x != y) ..; else ..;
+*Mock-Objekte für die DB-Zugriffsschicht
 
 *"mvn site"*
-- [x] generate maven report
+- [] generate maven report
+
+*Validierung bei fehlerhaften Daten
