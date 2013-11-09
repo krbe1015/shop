@@ -1,7 +1,7 @@
 SHOP
 ====
 
-Abgabe 1
+Abgabe 2 10.12.13
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
 - [x] Suchen K B A/P (find{Kunden,Bestellungen,Artikel}) GET
