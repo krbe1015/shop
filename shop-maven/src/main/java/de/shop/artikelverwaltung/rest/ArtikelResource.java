@@ -54,7 +54,7 @@ public class ArtikelResource {
 	
 	@Inject
 	private UriHelper uriHelper;
-	
+/*
 	@PostConstruct
 	private void postConstruct() {
 		LOGGER.debugf("CDI bean %s erzeugt", this);
@@ -64,7 +64,7 @@ public class ArtikelResource {
 	private void preDestroy() {
 		LOGGER.debugf("CDI bean %s geloescht", this);
 	}
-		
+*/		
 	// finde artikel durch ID
 	@GET
 	@Path("{id:[1-9][0-9]*}")
