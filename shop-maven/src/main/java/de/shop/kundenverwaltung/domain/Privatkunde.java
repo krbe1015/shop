@@ -4,11 +4,13 @@ import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-// von abstrakem kunden
+// von abstraktem kunden
+// TODO seieh vorlesung HashSet
+// FIXME von abstract weg
 @XmlRootElement
-public class Privatkunde extends AbstractKunde {
-	private static final long serialVersionUID = -3177911520687689458L;
+public class Privatkunde extends Kunde {
 	
+	private static final long serialVersionUID = 7177911520687689458L;
 	private Set<Eigenschaften> eigenschaften;
 
 	public Set<Eigenschaften> getEigenschaften() {

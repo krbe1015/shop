@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import de.shop.bestellverwaltung.domain.Bestellung;
-import de.shop.kundenverwaltung.domain.AbstractKunde;
+import de.shop.kundenverwaltung.domain.Kunde;
 import de.shop.util.MockService;
 import de.shop.util.interceptor.Log;
 
@@ -26,7 +26,7 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 	// private transient Event<Bestellung> event;
 	
 	@Override
-	public AbstractKunde findKundeByBestellungId(Long id) {
+	public Kunde findKundeByBestellungId(Long id) {
 		return MockService.findKundeByBestellungId(id);
 	}
 	
@@ -45,7 +45,7 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 	 */
 	@Override
 	@Size(min = 1, message = "{bestellung.notFound.kunde}")
-	public List<Bestellung> findBestellungenByKunde(AbstractKunde kunde) {
+	public List<Bestellung> findBestellungenByKunde(Kunde kunde) {
 		// TODO Datenbanzugriffsschicht statt MockService
 		return MockService.findBestellungenByKunde(kunde);
 	}
@@ -54,7 +54,7 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 	 * {inheritDoc}
 	 */
 	@Override
-	public Bestellung createBestellung(Bestellung bestellung, AbstractKunde kunde, Locale locale) {
+	public Bestellung createBestellung(Bestellung bestellung, Kunde kunde, Locale locale) {
 		// TODO Datenbanzugriffsschicht statt MockService
 		bestellung = MockService.createBestellung(bestellung, kunde);
 		// TODO email versenden

@@ -32,7 +32,7 @@ import de.shop.artikelverwaltung.rest.ArtikelResource;
 import de.shop.bestellverwaltung.domain.Bestellposition;
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.bestellverwaltung.service.BestellungService;
-import de.shop.kundenverwaltung.domain.AbstractKunde;
+import de.shop.kundenverwaltung.domain.Kunde;
 import de.shop.kundenverwaltung.rest.KundeResource;
 
 import de.shop.util.MockService;
@@ -94,7 +94,7 @@ public class BestellungResource {
 	
 	public void setStructuralLinks(Bestellung bestellung, UriInfo uriInfo) {
 		// URI fuer Kunde setzen
-		final AbstractKunde kunde = bestellung.getKunde();
+		final Kunde kunde = bestellung.getKunde();
 		if (kunde != null) {
 			final URI kundeUri = kundeResource.getUriKunde(bestellung.getKunde(), uriInfo);
 			bestellung.setKundeUri(kundeUri);

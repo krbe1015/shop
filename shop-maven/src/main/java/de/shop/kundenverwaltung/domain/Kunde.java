@@ -3,6 +3,7 @@ package de.shop.kundenverwaltung.domain;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.List;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -19,18 +20,26 @@ import de.shop.bestellverwaltung.domain.Bestellung;
 @XmlSeeAlso({ Firmenkunde.class, Privatkunde.class })
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
-	@Type(value = Privatkunde.class, name = AbstractKunde.PRIVATKUNDE),
-	@Type(value = Firmenkunde.class, name = AbstractKunde.FIRMENKUNDE) })
-public abstract class AbstractKunde implements Serializable {
+	@Type(value = Privatkunde.class, name = Kunde.PRIVATKUNDE),
+	@Type(value = Firmenkunde.class, name = Kunde.FIRMENKUNDE) })
+public abstract class Kunde implements Serializable {
 	private static final long serialVersionUID = 7401524595142572933L;
 	
 	public static final String PRIVATKUNDE = "P";
 	public static final String FIRMENKUNDE = "F";
 	
 	private Long id;
+	@NotNull(message = "{.}")
+	@Size(min = 2, max = 64, message = "{.}")
 	private String nachname;
+	@Email(messaage = "{.}")
+	@NotNull(message = "{.}")
+	@Size(min = 2, message ="{.}")
 	private String email;
+	@Valid
+	@NotNull(message = "{.}")
 	private Adresse adresse;
+	private Date seit;
 	
 	// verknuepfung mit bestellung
 	@XmlTransient
@@ -68,13 +77,19 @@ public abstract class AbstractKunde implements Serializable {
 	public void setBestellungen(List<Bestellung> bestellungen) {
 		this.bestellungen = bestellungen;
 	}
-
 	public URI getBestellungenUri() {
 		return bestellungenUri;
 	}
 	public void setBestellungenUri(URI bestellungenUri) {
 		this.bestellungenUri = bestellungenUri;
 	}
+	public Date getSeit() {
+		return seit;
+	}
+	public void setSeit(Date seit) {
+		this.seit = seit;
+	}
+	
 	@Override
 	public String toString() {
 		return "AbstractKunde [id=" + id + ", nachname=" + nachname
@@ -97,6 +112,8 @@ public abstract class AbstractKunde implements Serializable {
 				+ ((nachname == null) ? 0 : nachname.hashCode());
 		return result;
 	}
+	// FIXME performance wird hier sehr leiden
+	// TODO equals methode verkleinern
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,7 +122,7 @@ public abstract class AbstractKunde implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		final AbstractKunde other = (AbstractKunde) obj;
+		final Kunde other = (Kunde) obj;
 		if (adresse == null) {
 			if (other.adresse != null)
 				return false;

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.validation.Valid;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import de.shop.kundenverwaltung.domain.AbstractKunde;
+import de.shop.kundenverwaltung.domain.Kunde;
 
 @XmlRootElement
 public class Bestellung {
@@ -26,7 +26,7 @@ public class Bestellung {
 	private List<Bestellposition> bestellposition;
 	
 	@XmlTransient
-	private AbstractKunde kunde;
+	private Kunde kunde;
 	
 	private URI kundeUri;
 
@@ -63,11 +63,11 @@ public class Bestellung {
 	}
 
 	@XmlTransient
-	public AbstractKunde getKunde() {
+	public Kunde getKunde() {
 		return kunde;
 	}
 
-	public void setKunde(AbstractKunde kunde) {
+	public void setKunde(Kunde kunde) {
 		this.kunde = kunde;
 	}
 
