@@ -37,7 +37,7 @@ public class ArtikelService implements Serializable {
 	}
 	
 	public void deleteArtikel(Long id) {
-		MockService.deleteArtikel(id)
+		MockService.deleteArtikel(id);
 	}
 	
 }
