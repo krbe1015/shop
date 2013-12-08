@@ -10,7 +10,6 @@ import static de.shop.util.Constants.SELF_LINK;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
-
 import java.net.URI;
 
 import javax.inject.Inject;
@@ -26,13 +25,20 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-// import de.shop.artikelverwaltung.domain.Artikel;
+import javax.validation.Valid;
+import javax.enterprise.context.RequestScoped;
+
+import de.shop.artikelverwaltung.rest.ArtikelResource;
+import de.shop.bestellverwaltung.domain.Bestellposition;
 import de.shop.bestellverwaltung.domain.Bestellung;
+import de.shop.bestellverwaltung.service.BestellungService;
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 import de.shop.kundenverwaltung.rest.KundeResource;
+
 import de.shop.util.MockService;
 import de.shop.util.rest.UriHelper;
 import de.shop.util.rest.NotFoundException;
+import de.shop.util.interceptor.Log;
 
 @Path("/bestellungen")
 @Produces({ APPLICATION_JSON, APPLICATION_XML + ";qs=0.75", TEXT_XML + ";qs=0.5" })
@@ -47,11 +53,16 @@ public class BestellungResource {
 	@Inject
 	private KundeResource kundeResource;
 	
+	@Inject
+	private BestellungService bs;
+	
+	@Inject
+	private ArtikelResource artikelResource;
+	
 	@GET
 	@Path("{id:[1-9][0-9]*}")
 	public Response findBestellungById(@PathParam("id") Long id) {
-		// TODO Anwendungskern statt MockService, Verwendung von Locale
-		final Bestellung bestellung = MockService.findBestellungById(id);
+		final Bestellung bestellung = bs.findBestellungById(id);
 		if (bestellung == null) {
 			throw new NotFoundException("Keine Bestellung mit der ID " + id + " gefunden.");
 		}
@@ -66,12 +77,35 @@ public class BestellungResource {
 		return response;
 	}
 	
+	@GET
+	@Path("{id:[1-9][0-9]*}/kunde")
+	public Response findKundeByBestellungId(@PathParam("id") Long id) {
+		final Kunde kunde = bs.findKundeByBestellungId(id);
+		if (kunde == null) {
+			throw new NotFoundException("Kein Kunde zur Bestellung mit ID: " + id + " gefunden");
+		}
+		else {
+			kundeResource.setStructuralLinks(kunde, uriInfo);
+		}
+		return Response.ok(kunde)
+						.links(kundeResource.getTransitionalLinks(kunde, uriInfo))
+						.build();
+	}
+	
 	public void setStructuralLinks(Bestellung bestellung, UriInfo uriInfo) {
 		// URI fuer Kunde setzen
 		final AbstractKunde kunde = bestellung.getKunde();
 		if (kunde != null) {
 			final URI kundeUri = kundeResource.getUriKunde(bestellung.getKunde(), uriInfo);
 			bestellung.setKundeUri(kundeUri);
+		}
+		// TODO URI für Artikel in Bestellposition
+		// FIXME bestellposition URI
+		for (Bestellposition bp : bestellung.getBestellposition()) {
+			if (bp != null) {
+				final URI artikelURI = artikelResource.getUriArtikel(bp.getArtikel(), uriInfo);
+				bp.setArtikelUri(artikelURI);
+			}
 		}
 	}
 	

@@ -1,20 +1,24 @@
 package de.shop.bestellverwaltung.domain;
 
+import java.io.Serializable;
 import java.net.URI;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import de.shop.artikelverwaltung.domain.Artikel;
+import javax.validation.constraints.Min;
 
 @XmlRootElement
 public class Bestellposition {
+	private static final long serialVersionUID = 3213359234119009876L;
 
-		// verknuepfung mit artikel
 		@XmlTransient
 		private Artikel artikel;
 		
+		@Min(value = 1, message = "{bestellposition.anzahl.min}")
 		private int anzahl;
+		
 		private URI artikelURI;
 		
 		public Artikel getArtikel() {

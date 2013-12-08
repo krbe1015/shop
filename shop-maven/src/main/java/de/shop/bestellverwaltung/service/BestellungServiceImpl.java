@@ -18,11 +18,17 @@ import de.shop.util.interceptor.Log;
 @Dependent
 @Log
 public class BestellungServiceImpl implements BestellungService, Serializable {
-	private static final long serialVersionUID = -519454062519816252L;
+	private static final long serialVersionUID = -769454062519816252L;
 	
-	@Inject
-	@NeueBestellung
-	private transient Event<Bestellung> event;
+	// TODO mach was nachdem die bestellung aufgegeben wurde, z.b. mail versenden
+	// @Inject
+	// @NeueBestellung
+	// private transient Event<Bestellung> event;
+	
+	@Override
+	public AbstractKunde findKundeByBestellungId(Long id) {
+		return MockService.findKundeByBestellungId(id);
+	}
 	
 	/**
 	 * {inheritDoc}
@@ -51,8 +57,8 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 	public Bestellung createBestellung(Bestellung bestellung, AbstractKunde kunde, Locale locale) {
 		// TODO Datenbanzugriffsschicht statt MockService
 		bestellung = MockService.createBestellung(bestellung, kunde);
-		event.fire(bestellung);
-		
+		// TODO email versenden
+		// event.fire(bestellung);	
 		return bestellung;
 	}
 }

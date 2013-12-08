@@ -8,18 +8,21 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import de.shop.kundenverwaltung.domain.AbstractKunde;
 
 @XmlRootElement
 public class Bestellung {
-	// private static final long serialVersionUID = 1618359234119003714L;
+	private static final long serialVersionUID = 1618359234119003714L;
 	
 	private Long id;
 	private BigDecimal gesamtpreis;
 	private boolean ausgeliefert;
 	
-	// verknuepfung mit bestellposition
-	@XmlTransient
+	@Valid
+	@NotEmpty(message = "{bestellverwaltung.bestellung.bestellposition.notEmpty}")
 	private List<Bestellposition> bestellposition;
 	
 	@XmlTransient
@@ -59,6 +62,7 @@ public class Bestellung {
 		this.bestellposition = bestellposition;
 	}
 
+	@XmlTransient
 	public AbstractKunde getKunde() {
 		return kunde;
 	}
