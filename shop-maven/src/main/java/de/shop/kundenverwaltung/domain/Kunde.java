@@ -8,6 +8,12 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Email;
+
 
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonSubTypes.Type;
@@ -29,15 +35,15 @@ public abstract class Kunde implements Serializable {
 	public static final String FIRMENKUNDE = "F";
 	
 	private Long id;
-	@NotNull(message = "{.}")
-	@Size(min = 2, max = 64, message = "{.}")
+	@NotNull(message = "{kunde.nachname.notNull}")
+	@Size(min = 2, max = 64, message = "{kunde.nachname.length}")
 	private String nachname;
-	@Email(messaage = "{.}")
-	@NotNull(message = "{.}")
-	@Size(min = 2, message ="{.}")
+	@Email(message = "{kunde.email.pattern}")
+	@NotNull(message = "{kunde.email.notNull}")
+	@Size(min = 2, message ="{kunde.email.length}")
 	private String email;
 	@Valid
-	@NotNull(message = "{.}")
+	@NotNull(message = "{kunde.adresse.notNull}")
 	private Adresse adresse;
 	private Date seit;
 	
