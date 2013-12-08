@@ -104,7 +104,7 @@ public class BestellungResource {
 		for (Bestellposition bp : bestellung.getBestellposition()) {
 			if (bp != null) {
 				final URI artikelURI = artikelResource.getUriArtikel(bp.getArtikel(), uriInfo);
-				bp.setArtikelUri(artikelURI);
+				bp.setArtikelURI(artikelURI);
 			}
 		}
 	}

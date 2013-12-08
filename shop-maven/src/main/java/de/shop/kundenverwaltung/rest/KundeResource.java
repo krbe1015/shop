@@ -30,6 +30,7 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.enterprise.context.RequestScoped;
+import javax.validation.Valid;
 
 import de.shop.bestellverwaltung.domain.Bestellung;
 import de.shop.bestellverwaltung.rest.BestellungResource;
@@ -244,8 +245,8 @@ public class KundeResource {
 	public Response updateKunde(@Valid Kunde kunde) {
 		ks.updateKunde(kunde);
 	return Response.noContent()
-					.links(getTransitionalLinks(kunde, uriInfo)
-					.build();
+                .links(getTransitionalLinks(kunde, uriInfo))
+                .build();
 	}
 	
 	// loesche kunde

@@ -30,9 +30,6 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 		return MockService.findKundeByBestellungId(id);
 	}
 	
-	/**
-	 * {inheritDoc}
-	 */
 	@Override
 	@NotNull(message = "{bestellung.notFound.id}")
 	public Bestellung findBestellungById(Long id) {
@@ -40,9 +37,6 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 		return MockService.findBestellungById(id);
 	}
 
-	/**
-	 * {inheritDoc}
-	 */
 	@Override
 	@Size(min = 1, message = "{bestellung.notFound.kunde}")
 	public List<Bestellung> findBestellungenByKunde(Kunde kunde) {
@@ -50,13 +44,10 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 		return MockService.findBestellungenByKunde(kunde);
 	}
 
-	/**
-	 * {inheritDoc}
-	 */
 	@Override
-	public Bestellung createBestellung(Bestellung bestellung, Kunde kunde, Locale locale) {
+	public Bestellung createBestellung(Bestellung bestellung) {
 		// TODO Datenbanzugriffsschicht statt MockService
-		bestellung = MockService.createBestellung(bestellung, kunde);
+		bestellung = MockService.createBestellung(bestellung);
 		// TODO email versenden
 		// event.fire(bestellung);	
 		return bestellung;

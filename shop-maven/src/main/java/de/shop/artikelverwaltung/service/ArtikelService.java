@@ -23,10 +23,11 @@ public class ArtikelService implements Serializable {
 		return MockService.findArtikelById(id);
 	}
 	
-	@Size(min = 1, message = "{artikel.notFound.all}")
-	public List<Artikel> findAllArtikel() {
-		return MockService.findAllArtikel();
-	}
+	// TODO findAllArtikel in Mock
+//	@Size(min = 1, message = "{artikel.notFound.all}")
+//	public List<Artikel> findAllArtikel() {
+//		return MockService.findAllArtikel();
+//	}
 	
 	public Artikel createArtikel(Artikel artikel) {
 		return MockService.createArtikel(artikel);

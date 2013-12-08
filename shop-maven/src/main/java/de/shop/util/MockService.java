@@ -2,11 +2,12 @@ package de.shop.util;
 
 import java.lang.invoke.MethodHandles;
 import java.math.BigDecimal;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.GregorianCalendar;
+import java.util.Date;
 
 import org.jboss.logging.Logger;
 
@@ -20,17 +21,14 @@ import de.shop.kundenverwaltung.domain.Firmenkunde;
 import de.shop.kundenverwaltung.domain.Privatkunde;
 
 public final class MockService {
-	// statt println auf console
 	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
 	
 	private static final int MAX_ID = 99;
 	private static final int MAX_KUNDEN = 8;
-	// dummys
 	private static final BigDecimal DUMMY_PREIS =
 			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
 	private static final int MAX_BESTELLUNGEN = 4;
-
-	// LASST DIE FINGER VON GIT!
+	private static final int MAX_ARTIKEL = 101;
 	
 	public static Kunde findKundeById(Long id) {
 		if (id > MAX_ID) {
@@ -84,6 +82,31 @@ public final class MockService {
 		return kunden;
 	}
 	
+	public static Kunde findKundeByBestellungId(Long id) {
+		final Bestellung bestellung = findBestellungById(id);
+		return bestellung.getKunde();
+	}
+	
+	public static Kunde findKundeByEmail(String email) {
+		if (email.isEmpty()) {
+			return null;
+		}
+		
+		final Kunde kunde = email.length() % 2 == 1 ? new Privatkunde() : new Firmenkunde();
+		kunde.setId(Long.valueOf(email.length()));
+		kunde.setNachname("Mueller");
+		kunde.setEmail(email);
+		// FIXME datum, import kalender
+		final GregorianCalendar seitGC = new GregorianCalendar(2013, 12, 8);
+		final Date seit = seitGC.getTime();
+		kunde.setSeit(seit);
+	
+		// TODO kunde hat eigentlich noch adresse
+		// TODO Eigenschaften des Privatkunden setzen
+	
+		return kunde;
+	}
+	
 	// finde bestellung durch kunde
 	public static List<Bestellung> findBestellungenByKunde(Kunde kunde) {
 		// Beziehungsgeflecht zwischen Kunde und Bestellungen aufbauen
@@ -98,7 +121,7 @@ public final class MockService {
 		
 		return bestellungen;
 	}
-
+	
 	// finde bestellung durch ID
 	public static Bestellung findBestellungById(Long id) {
 		if (id > MAX_ID) {
@@ -106,7 +129,6 @@ public final class MockService {
 		}
 
 		final Kunde kunde = findKundeById(id + 1);  // andere ID fuer den Kunden
-
 		final Bestellung bestellung = new Bestellung();
 		bestellung.setId(id);
 		bestellung.setAusgeliefert(false);
@@ -123,23 +145,9 @@ public final class MockService {
 //                bestellposition.add(bp);
 //        }
 //        bestellung.setBestellposition(bestellposition);
-//        bestellung.setGesamtpreis(bestellung.gesamtpreisBerechnung());
+//        bestellung.setGesamtfpreis(bestellung.gesamtpreisBerechnung());
 		
 		return bestellung;
-	}
-	
-	// erstelle bestellung
-	public static Bestellung createBestellung(Bestellung bestellung) {
-		final int id = 9;
-		bestellung = findBestellungById(Long.valueOf(id));
-		LOGGER.debugf("Erstelle Bestellung: " + bestellung);
-		return bestellung;
-	}
-	
-	// update bestellung
-	public static void updateBestellung(Bestellung bestellung) {
-		
-		LOGGER.debugf("Aktualisierte Bestellung: " + bestellung);
 	}
 	
 	// finde artikel durch ID
@@ -155,15 +163,36 @@ public final class MockService {
 		artikel.setPreis(DUMMY_PREIS);
 		artikel.setId(id);
 		artikel.setBezeichnung("Bezeichnung:" + id);
-		// artikel.setPreis(PSEUDO_PRICE);
 		return artikel;
+	}
+	
+	// erstelle bestellung
+	public static Bestellung createBestellung(Bestellung bestellung) {
+		final Kunde kunde = bestellung.getKunde();
+		kunde.setId(Long.valueOf(1));
+		final BigDecimal gesamtpreis = bestellung.getGesamtpreis();
+		gesamtpreis.setScale(10);
+		
+		// bestellung = findBestellungById(Long.valueOf(id));
+		
+		LOGGER.debugf("Erstelle Bestellung: " + bestellung);
+		return bestellung;
+	}
+	
+	// update bestellung
+	public static void updateBestellung(Bestellung bestellung) {
+		LOGGER.debugf("Aktualisierte Bestellung: " + bestellung);
+	}
+	
+	// loesche bestellung
+	public static void deleteBestellung(Long bestellungId) {
+		LOGGER.debugf("Bestellung mit ID=" + bestellungId + " geloescht");
 	}
 	
 	// estelle artikel
 	public static Artikel createArtikel(Artikel artikel) {
 		final String bezeichnung = artikel.getBezeichnung();
 		artikel.setId(Long.valueOf(bezeichnung.length()));
-		// final Double preis = artikel.getPreis();
 		artikel.setPreis(artikel.getPreis());
 		
 		LOGGER.debugf("Ersteller Artikel: " + artikel);
@@ -172,8 +201,12 @@ public final class MockService {
 	
 	// update artikel
 	public static void updateArtikel(Artikel artikel) {
-		
 		LOGGER.debugf("Aktualisierter Artikel: " + artikel);
+	}
+	
+	// loesche artikel
+	public static void deleteArtikel(Long Id) {
+		LOGGER.debugf("Artikel mit ID=" + Id + " geloescht");
 	}
 
 	// erstelle kunde
