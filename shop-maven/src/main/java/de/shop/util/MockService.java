@@ -97,7 +97,7 @@ public final class MockService {
 		kunde.setNachname("Mueller");
 		kunde.setEmail(email);
 		// FIXME datum, import kalender
-		final GregorianCalendar seitGC = new GregorianCalendar(2013, 12, 8);
+		final GregorianCalendar seitGC = new GregorianCalendar(2013, 0, 8);
 		final Date seit = seitGC.getTime();
 		kunde.setSeit(seit);
 	

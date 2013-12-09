@@ -12,8 +12,6 @@ import java.lang.invoke.MethodHandles;
 import java.net.URI;
 // import java.lang.invoke.MethodHandles;
 
-
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -27,8 +25,8 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+//import javax.annotation.PostConstruct;
+//import javax.annotation.PreDestroy;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.artikelverwaltung.service.ArtikelService;
@@ -37,7 +35,7 @@ import de.shop.artikelverwaltung.service.ArtikelService;
 import de.shop.util.rest.UriHelper;
 import de.shop.util.rest.NotFoundException;
 
-import org.jboss.logging.Logger;
+// import org.jboss.logging.Logger;
 import de.shop.util.interceptor.Log;
 
 
@@ -47,7 +45,7 @@ import de.shop.util.interceptor.Log;
 @Log
 public class ArtikelResource {
 	
-	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
+//	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
 	
 	@Inject
 	private ArtikelService as;
@@ -58,15 +56,15 @@ public class ArtikelResource {
 	@Inject
 	private UriHelper uriHelper;
 
-	@PostConstruct
-	private void postConstruct() {
-		LOGGER.debugf("CDI bean %s erzeugt", this);
-	}
-	
-	@PreDestroy
-	private void preDestroy() {
-		LOGGER.debugf("CDI bean %s geloescht", this);
-	}
+//	@PostConstruct
+//	private void postConstruct() {
+//		LOGGER.debugf("CDI bean %s erzeugt", this);
+//	}
+//	
+//	@PreDestroy
+//	private void preDestroy() {
+//		LOGGER.debugf("CDI bean %s geloescht", this);
+//	}
 		
 	// finde artikel durch ID
 	@GET

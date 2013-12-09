@@ -42,8 +42,9 @@ public class Bestellung {
 		return gesamtpreis;
 	}
 
+	// FIXME remove setScale!
 	public void setGesamtpreis(BigDecimal gesamtpreis) {
-		this.gesamtpreis = gesamtpreis;
+		this.gesamtpreis = gesamtpreis.setScale(1);
 	}
 
 	public boolean isAusgeliefert() {

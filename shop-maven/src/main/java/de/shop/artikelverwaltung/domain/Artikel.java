@@ -138,5 +138,6 @@ public class Artikel implements Serializable {
 	public String toString() {
 		return "Artikel [bezeichnung=" + bezeichnung + ", preis=" + preis
 				+ ", id=" + id + "]";
-	}	
+	}
+	
 }	
