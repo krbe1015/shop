@@ -28,7 +28,7 @@ public final class MockService {
 	private static final BigDecimal DUMMY_PREIS =
 			new BigDecimal("0.1000000000000000055511151231257827021181583404541015625");
 	private static final int MAX_BESTELLUNGEN = 4;
-	private static final int MAX_ARTIKEL = 101;
+//	private static final int MAX_ARTIKEL = 101;
 	
 	public static Kunde findKundeById(Long id) {
 		if (id > MAX_ID) {
@@ -168,10 +168,11 @@ public final class MockService {
 	
 	// erstelle bestellung
 	public static Bestellung createBestellung(Bestellung bestellung) {
+		final int scale = 10;
 		final Kunde kunde = bestellung.getKunde();
 		kunde.setId(Long.valueOf(1));
 		final BigDecimal gesamtpreis = bestellung.getGesamtpreis();
-		gesamtpreis.setScale(10);
+		gesamtpreis.setScale(scale);
 		
 		// bestellung = findBestellungById(Long.valueOf(id));
 		
@@ -205,8 +206,8 @@ public final class MockService {
 	}
 	
 	// loesche artikel
-	public static void deleteArtikel(Long Id) {
-		LOGGER.debugf("Artikel mit ID=" + Id + " geloescht");
+	public static void deleteArtikel(Long id) {
+		LOGGER.debugf("Artikel mit ID=" + id + " geloescht");
 	}
 
 	// erstelle kunde

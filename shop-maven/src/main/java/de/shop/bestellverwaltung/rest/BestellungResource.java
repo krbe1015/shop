@@ -25,8 +25,8 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import javax.validation.Valid;
-import javax.enterprise.context.RequestScoped;
+// import javax.validation.Valid;
+// import javax.enterprise.context.RequestScoped;
 
 import de.shop.artikelverwaltung.rest.ArtikelResource;
 import de.shop.bestellverwaltung.domain.Bestellposition;
@@ -38,7 +38,7 @@ import de.shop.kundenverwaltung.rest.KundeResource;
 import de.shop.util.MockService;
 import de.shop.util.rest.UriHelper;
 import de.shop.util.rest.NotFoundException;
-import de.shop.util.interceptor.Log;
+// import de.shop.util.interceptor.Log;
 
 @Path("/bestellungen")
 @Produces({ APPLICATION_JSON, APPLICATION_XML + ";qs=0.75", TEXT_XML + ";qs=0.5" })

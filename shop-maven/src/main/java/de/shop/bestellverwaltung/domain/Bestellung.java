@@ -15,7 +15,7 @@ import de.shop.kundenverwaltung.domain.Kunde;
 
 @XmlRootElement
 public class Bestellung {
-	private static final long serialVersionUID = 1618359234119003714L;
+	// private static final long serialVersionUID = 1618359234119003714L;
 	
 	private Long id;
 	private BigDecimal gesamtpreis;

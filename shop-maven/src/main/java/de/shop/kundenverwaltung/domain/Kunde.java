@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.validation.constraints.Pattern;
+// import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Email;
 
 
@@ -40,7 +40,7 @@ public abstract class Kunde implements Serializable {
 	private String nachname;
 	@Email(message = "{kunde.email.pattern}")
 	@NotNull(message = "{kunde.email.notNull}")
-	@Size(min = 2, message ="{kunde.email.length}")
+	@Size(min = 2, message = "{kunde.email.length}")
 	private String email;
 	@Valid
 	@NotNull(message = "{kunde.adresse.notNull}")

@@ -1,6 +1,6 @@
 package de.shop.bestellverwaltung.domain;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 import java.net.URI;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
 
 @XmlRootElement
 public class Bestellposition {
-	private static final long serialVersionUID = 3213359234119009876L;
+	// private static final long serialVersionUID = 3213359234119009876L;
 
 		@XmlTransient
 		private Artikel artikel;

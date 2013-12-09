@@ -1,11 +1,11 @@
 package de.shop.artikelverwaltung.service;
 
 import java.io.Serializable;
-import java.util.List;
+// import java.util.List;
 
 import javax.enterprise.context.Dependent;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+// import javax.validation.constraints.Size;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 // import de.shop.util.interceptor.Log;

@@ -9,7 +9,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
 
 import java.net.URI;
-import java.lang.invoke.MethodHandles;
+// import java.lang.invoke.MethodHandles;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -24,8 +24,8 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+// import javax.annotation.PostConstruct;
+// import javax.annotation.PreDestroy;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.artikelverwaltung.service.ArtikelService;
@@ -34,7 +34,7 @@ import de.shop.artikelverwaltung.service.ArtikelService;
 import de.shop.util.rest.UriHelper;
 // import de.shop.util.rest.NotFoundException;
 
-import org.jboss.logging.Logger;
+// import org.jboss.logging.Logger;
 import de.shop.util.interceptor.Log;
 
 
@@ -43,9 +43,6 @@ import de.shop.util.interceptor.Log;
 @Consumes
 @Log
 public class ArtikelResource {
-	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
-	// private static final String no_id = "{artikel.notFound.id}";	
-	
 	@Inject
 	private ArtikelService as;
 	
