@@ -2,15 +2,29 @@ package de.shop.kundenverwaltung.domain;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import javax.xml.bind.annotation.XmlTransient;
 
 public class Adresse implements Serializable {
 	private static final long serialVersionUID = -3029272617931844501L;
+	private static final String REG_EX = "[A-Z\u00C4\u00D6\u00DC][a-z0-9+-_\u00E4\u00F6\u00FC\u00DF]+";
+	
 	private Long id;
+	
+	@NotNull(message = "{adresse.plz.notNull}")
+	@Pattern(regexp = "\\d{5}", message = "{adresse.plz.pattern}")
 	private String plz;
+	
+	@NotNull(message = "{adresse.ort.notNull}")
+	@Size(min = 5, max = 100, message = "{adresse.ort.length}")
+	@Pattern(regexp = REG_EX, message = "{adresse.ort.pattern}")
 	private String ort;
-		
-	// eigenschaften eines kunden
+
 	@XmlTransient
 	private Kunde kunde;
 	

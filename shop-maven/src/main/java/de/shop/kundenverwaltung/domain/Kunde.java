@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 // import javax.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.Email;
+// import org.hibernate.validator.constraints.Email;
 
 
 import org.codehaus.jackson.annotate.JsonSubTypes;
@@ -35,16 +35,20 @@ public abstract class Kunde implements Serializable {
 	public static final String FIRMENKUNDE = "F";
 	
 	private Long id;
+	
 	@NotNull(message = "{kunde.nachname.notNull}")
 	@Size(min = 2, max = 64, message = "{kunde.nachname.length}")
 	private String nachname;
-	@Email(message = "{kunde.email.pattern}")
+	
+//	@Email(message = "{kunde.email.pattern}")
 	@NotNull(message = "{kunde.email.notNull}")
 	@Size(min = 2, message = "{kunde.email.length}")
 	private String email;
+	
 	@Valid
 	@NotNull(message = "{kunde.adresse.notNull}")
 	private Adresse adresse;
+	
 	private Date seit;
 	
 	// verknuepfung mit bestellung

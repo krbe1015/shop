@@ -82,10 +82,10 @@ public final class MockService {
 		return kunden;
 	}
 	
-	public static Kunde findKundeByBestellungId(Long id) {
-		final Bestellung bestellung = findBestellungById(id);
-		return bestellung.getKunde();
-	}
+//	public static Kunde findKundeByBestellungId(Long id) {
+//		final Bestellung bestellung = findBestellungById(id);
+//		return bestellung.getKunde();
+//	}
 	
 	public static Kunde findKundeByEmail(String email) {
 		if (email.isEmpty()) {

@@ -24,6 +24,7 @@ public class ArtikelService implements Serializable {
 	}
 	
 	// TODO findAllArtikel in Mock
+//	@NotNull(message = "{artikel.notFound}")
 //	@Size(min = 1, message = "{artikel.notFound.all}")
 //	public List<Artikel> findAllArtikel() {
 //		return MockService.findAllArtikel();

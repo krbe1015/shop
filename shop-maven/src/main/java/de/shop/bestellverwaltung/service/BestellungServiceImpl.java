@@ -25,10 +25,10 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 	// @NeueBestellung
 	// private transient Event<Bestellung> event;
 	
-	@Override
-	public Kunde findKundeByBestellungId(Long id) {
-		return MockService.findKundeByBestellungId(id);
-	}
+//	@Override
+//	public Kunde findKundeByBestellungId(Long id) {
+//		return MockService.findKundeByBestellungId(id);
+//	}
 	
 	@Override
 	@NotNull(message = "{bestellung.notFound.id}")

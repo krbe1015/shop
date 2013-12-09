@@ -14,6 +14,7 @@ public class Bestellposition {
 	// private static final long serialVersionUID = 3213359234119009876L;
 
 		@XmlTransient
+		// @Valid
 		private Artikel artikel;
 		
 		@Min(value = 1, message = "{bestellposition.anzahl.min}")

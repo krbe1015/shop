@@ -25,8 +25,8 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-// import javax.validation.Valid;
-// import javax.enterprise.context.RequestScoped;
+import javax.validation.Valid;
+import javax.enterprise.context.RequestScoped;
 
 import de.shop.artikelverwaltung.rest.ArtikelResource;
 import de.shop.bestellverwaltung.domain.Bestellposition;
@@ -38,12 +38,15 @@ import de.shop.kundenverwaltung.rest.KundeResource;
 import de.shop.util.MockService;
 import de.shop.util.rest.UriHelper;
 import de.shop.util.rest.NotFoundException;
-// import de.shop.util.interceptor.Log;
+import de.shop.util.interceptor.Log;
 
 @Path("/bestellungen")
 @Produces({ APPLICATION_JSON, APPLICATION_XML + ";qs=0.75", TEXT_XML + ";qs=0.5" })
 @Consumes
+@Log
+@RequestScoped
 public class BestellungResource {
+	
 	@Context
 	private UriInfo uriInfo;
 	
@@ -56,16 +59,16 @@ public class BestellungResource {
 	@Inject
 	private BestellungService bs;
 	
-	@Inject
-	private ArtikelResource artikelResource;
+//	@Inject
+//	private ArtikelResource artikelResource;
 	
 	@GET
 	@Path("{id:[1-9][0-9]*}")
 	public Response findBestellungById(@PathParam("id") Long id) {
 		final Bestellung bestellung = bs.findBestellungById(id);
-		if (bestellung == null) {
-			throw new NotFoundException("Keine Bestellung mit der ID " + id + " gefunden.");
-		}
+//		if (bestellung == null) {
+//			throw new NotFoundException("Keine Bestellung mit der ID " + id + " gefunden.");
+//		}
 		
 		setStructuralLinks(bestellung, uriInfo);
 		
@@ -77,20 +80,20 @@ public class BestellungResource {
 		return response;
 	}
 	
-	@GET
-	@Path("{id:[1-9][0-9]*}/kunde")
-	public Response findKundeByBestellungId(@PathParam("id") Long id) {
-		final Kunde kunde = bs.findKundeByBestellungId(id);
-		if (kunde == null) {
-			throw new NotFoundException("Kein Kunde zur Bestellung mit ID: " + id + " gefunden");
-		}
-		else {
-			kundeResource.setStructuralLinks(kunde, uriInfo);
-		}
-		return Response.ok(kunde)
-						.links(kundeResource.getTransitionalLinks(kunde, uriInfo))
-						.build();
-	}
+//	@GET
+//	@Path("{id:[1-9][0-9]*}/kunde")
+//	public Response findKundeByBestellungId(@PathParam("id") Long id) {
+//		
+//	// FIXME war findKundeByBestellungId
+//		final Kunde kunde = bs.findKundeByBestellungId(id);
+//		if (kunde == null) {
+//			throw new NotFoundException("Kein Kunde zur Bestellung mit ID: " + id + " gefunden");
+//		}
+//			kundeResource.setStructuralLinks(kunde, uriInfo);
+//		return Response.ok(kunde)
+//						.links(kundeResource.getTransitionalLinks(kunde, uriInfo))
+//						.build();
+//	}
 	
 	public void setStructuralLinks(Bestellung bestellung, UriInfo uriInfo) {
 		// URI fuer Kunde setzen
@@ -101,12 +104,12 @@ public class BestellungResource {
 		}
 		// TODO URI für Artikel in Bestellposition
 		// FIXME bestellposition URI
-		for (Bestellposition bp : bestellung.getBestellposition()) {
-			if (bp != null) {
-				final URI artikelURI = artikelResource.getUriArtikel(bp.getArtikel(), uriInfo);
-				bp.setArtikelURI(artikelURI);
-			}
-		}
+//		for (Bestellposition bp : bestellung.getBestellposition()) {
+//			if (bp != null) {
+//				final URI artikelURI = artikelResource.getUriArtikel(bp.getArtikel(), uriInfo);
+//				bp.setArtikelURI(artikelURI);
+//			}
+//		}
 	}
 	
 	private Link[] getTransitionalLinks(Bestellung bestellung, UriInfo uriInfo) {
@@ -123,7 +126,7 @@ public class BestellungResource {
 	@POST
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
-	public Response createBestellung(Bestellung bestellung) {
+	public Response createBestellung(@Valid Bestellung bestellung) {
 		bestellung = MockService.createBestellung(bestellung);
 		setStructuralLinks(bestellung, uriInfo);
 		return Response.created(getUriBestellung(bestellung, uriInfo))

@@ -8,8 +8,11 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
 
+import java.lang.invoke.MethodHandles;
 import java.net.URI;
 // import java.lang.invoke.MethodHandles;
+
+
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -24,17 +27,17 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-// import javax.annotation.PostConstruct;
-// import javax.annotation.PreDestroy;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import de.shop.artikelverwaltung.domain.Artikel;
 import de.shop.artikelverwaltung.service.ArtikelService;
 // INFO wurde durch service ersetzt
 // import de.shop.util.MockService;
 import de.shop.util.rest.UriHelper;
-// import de.shop.util.rest.NotFoundException;
+import de.shop.util.rest.NotFoundException;
 
-// import org.jboss.logging.Logger;
+import org.jboss.logging.Logger;
 import de.shop.util.interceptor.Log;
 
 
@@ -43,6 +46,9 @@ import de.shop.util.interceptor.Log;
 @Consumes
 @Log
 public class ArtikelResource {
+	
+	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
+	
 	@Inject
 	private ArtikelService as;
 	
@@ -51,7 +57,7 @@ public class ArtikelResource {
 	
 	@Inject
 	private UriHelper uriHelper;
-/*
+
 	@PostConstruct
 	private void postConstruct() {
 		LOGGER.debugf("CDI bean %s erzeugt", this);
@@ -61,17 +67,17 @@ public class ArtikelResource {
 	private void preDestroy() {
 		LOGGER.debugf("CDI bean %s geloescht", this);
 	}
-*/		
+		
 	// finde artikel durch ID
 	@GET
 	@Path("{id:[1-9][0-9]*}")
 	public Response findArtikelById(@PathParam("id") Long id, @Context UriInfo uriInfo) {
 		final Artikel artikel = as.findArtikelById(id);
 		
-//		if (artikel == null) {
-//			// TODO fehlermeldung richtig importieren
-//			throw new NotFoundException(no_id, id);
-//		}
+		if (artikel == null) {
+			// TODO fehlermeldung richtig importieren
+			throw new NotFoundException("artikel.notFound.id", id);
+		}
 
 		return Response.ok(artikel)
 	                   .links(getTransitionalLinks(artikel, uriInfo))

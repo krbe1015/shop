@@ -24,11 +24,11 @@ import org.jboss.resteasy.api.validation.ViolationReport;
 
 import java.util.List;
 
-import de.shop.util.interceptor.Log;
+// import de.shop.util.interceptor.Log;
 
 @Provider
 @ApplicationScoped
-@Log
+// @Log
 public class ConstraintViolationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {	@Override
 	public Response toResponse(ConstraintViolationException exception) {
 		final Set<ConstraintViolation<?>> violations = exception.getConstraintViolations();
