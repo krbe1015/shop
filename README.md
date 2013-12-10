@@ -4,7 +4,9 @@ Abgabe 3
 
 neues Maven und WildFly installieren
 -------
-    new pom.xml
+    pom.xml
+
+
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
 - [x] Suchen K B A/P (find{Kunden,Bestellungen,Artikel}) GET
