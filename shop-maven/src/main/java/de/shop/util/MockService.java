@@ -150,6 +150,17 @@ public final class MockService {
 		return bestellung;
 	}
 	
+	// finde alle bestellungen
+	public static List<Bestellung> findAllBestellungen() {
+		final int anz = MAX_BESTELLUNGEN;
+		final List<Bestellung> bl = new ArrayList<>(anz);
+		for(int i = 1; i <= anz; i++) {
+			final Bestellung bestellung = findBestellungById(Long.valueOf(i));
+			bl.add(bestellung);
+		}
+		return bl;
+	}
+	
 	// finde artikel durch ID
 	public static Artikel findArtikelById(Long id) {
 		if (id > MAX_ID) {

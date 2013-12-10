@@ -31,6 +31,11 @@ public class BestellungServiceImpl implements BestellungService, Serializable {
 //	}
 	
 	@Override
+	public List<Bestellung> findAllBestellungen() {
+		return MockService.findAllBestellungen();
+	}
+	
+	@Override
 	@NotNull(message = "{bestellung.notFound.id}")
 	public Bestellung findBestellungById(Long id) {
 		// TODO Datenbanzugriffsschicht statt MockService

@@ -1,7 +1,7 @@
 package de.shop.bestellverwaltung.service;
 
 import java.util.List;
-
+import javax.validation.constraints.NotNull;
 // import java.util.Locale;
 
 import de.shop.bestellverwaltung.domain.Bestellung;
@@ -15,9 +15,16 @@ public interface BestellungService {
 	 *    Es duerfen keine Attribute definiert werden - auch nicht injizierte.
 	 */
 
+	@NotNull(message = "bestellung.notFound.id")
 	Bestellung findBestellungById(Long id);
+	
+	@NotNull(message = "bestellung.notFound.kunde")
 	List<Bestellung> findBestellungenByKunde(Kunde kunde);
+	
 	Bestellung createBestellung(Bestellung bestellung);
+	
+	List<Bestellung> findAllBestellungen();
+	
 	// FIXME findKundeByBestellungId
-	// Kunde kunde(Long id);
+	// Kunde findKundeByBestellungId(Long id);
 }

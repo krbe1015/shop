@@ -24,6 +24,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import javax.validation.Valid; 
 
 import javax.validation.Valid;
 import javax.enterprise.context.RequestScoped;
@@ -136,7 +137,7 @@ public class BestellungResource {
 	@PUT
 	@Consumes({APPLICATION_JSON, APPLICATION_XML, TEXT_XML })
 	@Produces
-	public void updateBestellung(Bestellung bestellung) {
+	public void updateBestellung(@Valid Bestellung bestellung) {
 		MockService.updateBestellung(bestellung);
 	}
 	
