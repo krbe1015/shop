@@ -8,8 +8,8 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.MediaType.APPLICATION_XML;
 import static javax.ws.rs.core.MediaType.TEXT_XML;
 
-import java.net.URI;
 // import java.lang.invoke.MethodHandles;
+import java.net.URI;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
