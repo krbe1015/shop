@@ -1,6 +1,6 @@
 Abgabe 3
 ====
-13. - 17.01.13
+* 13. - 17.01.13
 
 neues Maven und WildFly installieren
 -------
