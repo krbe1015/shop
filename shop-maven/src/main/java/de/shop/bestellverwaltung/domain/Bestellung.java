@@ -25,6 +25,7 @@ public class Bestellung {
 	@NotEmpty(message = "{bestellverwaltung.bestellung.bestellposition.notEmpty}")
 	private List<Bestellposition> bestellposition;
 	
+	// abstractKunde
 	@XmlTransient
 	private Kunde kunde;
 	
