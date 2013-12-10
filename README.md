@@ -18,7 +18,7 @@ neues Maven und WildFly installieren
 - [ ] maven report
 
 *Validierung bei fehlerhaften Daten*
-- [ ] 
+- [x] 
 
 *V2 technische Spalten für Timestamps: Erzeugung und letzte Änderung*
 - [ ] 
