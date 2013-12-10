@@ -23,7 +23,7 @@ public interface BestellungService {
 	
 	Bestellung createBestellung(Bestellung bestellung);
 	
-	List<Bestellung> findAllBestellungen();
+	// List<Bestellung> findallbestellungen
 	
 	// FIXME findKundeByBestellungId
 	// Kunde findKundeByBestellungId(Long id);

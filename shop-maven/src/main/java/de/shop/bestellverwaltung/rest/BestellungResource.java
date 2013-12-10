@@ -26,7 +26,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.validation.Valid; 
 
-import javax.validation.Valid;
+// import javax.validation.Valid;
 import javax.enterprise.context.RequestScoped;
 
 //import de.shop.artikelverwaltung.rest.ArtikelResource;
@@ -62,6 +62,27 @@ public class BestellungResource {
 	
 //	@Inject
 //	private ArtikelResource artikelResource;
+	
+//	@GET
+//	public Response findAllBestellungen() {
+//		final List<Bestellung> all = bs.findAllBestellungen();
+//		if (all.isEmpty())
+//			throw new NotFoundException("Keine Bestellungen gefunden")
+//		for (Bestellung bestellung : all) {
+//			setStructuralLinks(bestellung, uriInfo);
+//		}
+//		return Response.ok(new GenericEntity<List<Bestellung>>(all)) { })
+//						.setTransitionalLinksBestellungen(all, uriInfo)
+//						.build();
+//	}
+//	
+//	private Link[] setTransitionalLinksBestellungen(
+//			List<Bestellung> bestellungen, UriInfo uriInfo) {
+//		if (bestellung.isEmpty()) {
+//			return null;
+//		}
+//	}
+	
 	
 	@GET
 	@Path("{id:[1-9][0-9]*}")
