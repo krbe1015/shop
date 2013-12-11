@@ -38,13 +38,12 @@ import de.shop.util.rest.NotFoundException;
 // import org.jboss.logging.Logger;
 import de.shop.util.interceptor.Log;
 
-// git
 @Path("/artikel")
 @Produces({ APPLICATION_JSON, APPLICATION_XML + ";qs=0.75", TEXT_XML + ";qs=0.5" })
 @Consumes
 @Log
 public class ArtikelResource {
-	
+
 //	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
 	
 	@Inject
