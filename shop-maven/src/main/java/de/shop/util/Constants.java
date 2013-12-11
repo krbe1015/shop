@@ -3,7 +3,7 @@ package de.shop.util;
 public final class Constants {
 	public static final String REST_PATH = "/rest";
 
-	// Header-Link
+	// Header-Links
 	public static final String SELF_LINK = "self";
 	public static final String ADD_LINK = "add";
 	public static final String UPDATE_LINK = "update";
