@@ -1,21 +1,27 @@
-SHOP
+Abgabe 3
 ====
+### 13. - 17.01.13
 
-Abgabe 2 10.12.13
+neues Maven und WildFly installieren
+-------
+    pom.xml
+
+
 
 *Suche nach Kunden, Bestellungen, Artikel/Produkt*
 - [x] Suchen K B A/P (find{Kunden,Bestellungen,Artikel}) GET
 
 *Kunde registrieren u. aendern, Bestellung inkl. Positionen aufgeben, Artikel/Produkt anlegen u. aendern*
-- [x] K reg/alter (createKunde, updateKunde) POST PUT
-- [/] B/P aufgeben (createBestellung, createBestellPosition) POST
-- [x] A/P anlegen/aendern (create/updateArtikel, create/updateProdukt) POST PUT
-
-*Mock-Objekte für die DB-Zugriffsschicht*
-- [ ] 
+- [x] ALL
 
 *"mvn site"*
-- [ ] generate maven report
+- [ ] maven report
 
 *Validierung bei fehlerhaften Daten*
+- [x] 
+
+*V2 technische Spalten für Timestamps: Erzeugung und letzte Änderung*
+- [ ] 
+
+*Eclipse-Projekt auf beschrifteter CD oder DVD*
 - [ ] 
