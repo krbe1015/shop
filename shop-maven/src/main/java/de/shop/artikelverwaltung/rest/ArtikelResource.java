@@ -45,6 +45,7 @@ import de.shop.util.interceptor.Log;
 @Log
 public class ArtikelResource {
 	
+// bla
 //	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass());
 	
 	@Inject
