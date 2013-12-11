@@ -1,3 +1,5 @@
+// FIXME umbenennen in AbstractKunde! zur 3. Abnahme
+
 package de.shop.artikelverwaltung.domain;
 
 import java.io.Serializable;
